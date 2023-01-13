@@ -29,3 +29,14 @@ Voici un exemple d'interface pour l'application. Il est possible de changer les 
 ## Découpage de l'implémentation
 
 L'architecture du projet a été mis en place et le premier écran a été développé. L'objectif est de développer les deux autres écrans en commençant par la couche domain, puis data et enfin présentation.
+
+Avant de commencer les développements il est conseillé de s'impreigner du code (ne pas hésiter à avoir un oeil critique dessus) et de lire ces liens si vous en ressentez le besoin :
+- Un Article Medium sur la [Clean Archi Android](https://medium.com/android-dev-hacks/detailed-guide-on-android-clean-architecture-9eab262a9011)
+- La doc Android sur les [fondamentaux du testing](https://developer.android.com/training/testing/fundamentals)
+- La doc Android sur les [Coroutines](https://developer.android.com/kotlin/coroutines) et les [Flow](https://developer.android.com/kotlin/flow) 
+
+L'application repose sur une API [dummyapi](https://dummyapi.io/docs) et il faut se créer un compte et générer une app-id comme indiqué dans la page __*Getting Started*__. Cette app-id est à mettre dans la classe `DummyApi` du module `:api`.
+
+### Partie 1 : Développement du domaine
+
+Le domaine est le coeur de l'application qui contient la logique et les règles métier. Il est donc important que le domaine soit indépendant des autres modules et d'autres bibliothèques liées à l'UI, à Android, ... Mais aussi que toutes les classes (sauf les modèles) et les méthodes publiques soient testées.
