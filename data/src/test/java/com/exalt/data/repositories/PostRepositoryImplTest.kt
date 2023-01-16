@@ -16,10 +16,10 @@ import org.junit.Test
 import retrofit2.Response
 import java.util.UUID
 
-class PostPreviewRepositoryImplTest {
+class PostRepositoryImplTest {
     private val postService: PostService = mockk()
     private val postPreviewMapper: PostPreviewMapper = mockk()
-    private val postPreviewRepositoryImpl = PostPreviewRepositoryImpl(postService, postPreviewMapper)
+    private val postPreviewRepositoryImpl = PostRepositoryImpl(postService, postPreviewMapper)
 
     @Test
     fun `Given a successful response with posts on page 23, When getting posts through repository, Then returns list of PostPreview`() = runTest {
