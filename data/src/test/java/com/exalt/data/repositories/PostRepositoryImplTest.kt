@@ -1,7 +1,7 @@
 package com.exalt.data.repositories
 
 import com.exalt.api.models.Page
-import com.exalt.api.services.PostService
+import com.exalt.api.services.RemoteService
 import com.exalt.data.ModelDataFactory.getPostPreviewDTO
 import com.exalt.data.mappers.PostPreviewMapper
 import com.exalt.domain.home.models.DomainModelFactory.getDefaultPostPreviewModel
@@ -17,9 +17,9 @@ import retrofit2.Response
 import java.util.UUID
 
 class PostRepositoryImplTest {
-    private val postService: PostService = mockk()
+    private val remoteService: RemoteService = mockk()
     private val postPreviewMapper: PostPreviewMapper = mockk()
-    private val postPreviewRepositoryImpl = PostRepositoryImpl(postService, postPreviewMapper)
+    private val postPreviewRepositoryImpl = PostRepositoryImpl(remoteService, postPreviewMapper)
 
     @Test
     fun `Given a successful response with posts on page 23, When getting posts through repository, Then returns list of PostPreview`() = runTest {
@@ -28,7 +28,7 @@ class PostRepositoryImplTest {
         val randomUuids = List(50) { UUID.randomUUID().toString() }
         val postPreviewDTOs = randomUuids.map { getPostPreviewDTO(it) }
         val expectedPostPreviews = randomUuids.map { getDefaultPostPreviewModel(it) }
-        coEvery { postService.getPosts(page) } returns Response.success(Page(data = postPreviewDTOs, total = page))
+        coEvery { remoteService.getPosts(page) } returns Response.success(Page(data = postPreviewDTOs, total = page))
         coEvery { postPreviewMapper.fromListDto(postPreviewDTOs) } returns expectedPostPreviews
 
         // When
@@ -42,7 +42,7 @@ class PostRepositoryImplTest {
     fun `Given a successful response with no post on page 0, When getting posts through repository, Then returns an empty list`() = runTest {
         // Given
         val page = 0u
-        coEvery { postService.getPosts(page) } returns Response.success(Page(data = emptyList(), total = page))
+        coEvery { remoteService.getPosts(page) } returns Response.success(Page(data = emptyList(), total = page))
         coEvery { postPreviewMapper.fromListDto(emptyList()) } returns emptyList()
 
         // When
@@ -56,7 +56,7 @@ class PostRepositoryImplTest {
     fun `Given an error response, When getting posts through repository, Then returns an empty list`() = runTest {
         // Given
         val page = 0u
-        coEvery { postService.getPosts(page) } returns Response.error(404, ResponseBody.create(MediaType.get("application/json"), "HTTP NOT FOUND"))
+        coEvery { remoteService.getPosts(page) } returns Response.error(404, ResponseBody.create(MediaType.get("application/json"), "HTTP NOT FOUND"))
 
         // When
         val postPreviews = postPreviewRepositoryImpl.getPosts(page)

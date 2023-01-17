@@ -1,6 +1,6 @@
 package com.exalt.data.repositories
 
-import com.exalt.api.services.PostService
+import com.exalt.api.services.RemoteService
 import com.exalt.data.mappers.PostPreviewMapper
 import com.exalt.domain.home.models.PostModel
 import com.exalt.domain.home.models.PostPreviewModel
@@ -10,11 +10,11 @@ import javax.inject.Singleton
 
 @Singleton
 internal class PostRepositoryImpl @Inject constructor(
-    private val postService: PostService,
+    private val remoteService: RemoteService,
     private val postPreviewMapper: PostPreviewMapper,
 ) : PostRepository {
     override suspend fun getPosts(page: UInt): List<PostPreviewModel> =
-        postService.getPosts(page).let { response ->
+        remoteService.getPosts(page).let { response ->
             if (response.isSuccessful) {
                 postPreviewMapper.fromListDto(response.body()!!.data)
             } else {
