@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.eXalt.chienstagram.R
+import com.eXalt.home.R
 import com.exalt.home.adapters.PostListAdapter
 import com.exalt.home.extensions.handleVisibility
 import com.exalt.home.viewmodels.HomeViewModel

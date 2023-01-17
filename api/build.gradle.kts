@@ -16,6 +16,16 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    buildTypes {
+        debug {
+            buildConfigField("String", "API_ID", "\"63c5573a496ae06190e061d3\"")
+        }
+
+        release {
+            buildConfigField("String", "API_ID", "\"\"")
+        }
+    }
 }
 
 tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {

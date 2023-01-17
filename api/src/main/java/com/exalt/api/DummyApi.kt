@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class DummyApi {
     companion object {
-        const val APP_ID = "YOUR_API_KEY"
+        const val APP_ID = BuildConfig.API_ID
     }
 
     val postService: PostService

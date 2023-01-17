@@ -1,7 +1,7 @@
 package com.exalt.domain.home.usecases
 
 import com.exalt.domain.home.models.DomainModelFactory.getDefaultPostPreviewModel
-import com.exalt.domain.home.repositories.PostPreviewRepository
+import com.exalt.domain.home.repositories.PostRepository
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
@@ -11,8 +11,8 @@ import org.junit.Test
 import java.util.UUID
 
 class GetPostPreviewsUseCaseTest {
-    private val postPreviewRepository: PostPreviewRepository = mockk()
-    private val getPostPreviewsUseCase = GetPostPreviewsUseCase(postPreviewRepository)
+    private val postRepository: PostRepository = mockk()
+    private val getPostPreviewsUseCase = GetPostPreviewsUseCase(postRepository)
 
     @Test
     fun `Given repository returns full list, When GetPostPreviewsUseCase is invoked, Then returns full list`() = runTest {
@@ -21,7 +21,7 @@ class GetPostPreviewsUseCaseTest {
             getDefaultPostPreviewModel(UUID.randomUUID().toString())
         }
 
-        coEvery { postPreviewRepository.getPosts(0u) } returns expectedPostsList
+        coEvery { postRepository.getPosts(0u) } returns expectedPostsList
 
         // When
         val actualPostsList = getPostPreviewsUseCase.invoke()
@@ -33,7 +33,7 @@ class GetPostPreviewsUseCaseTest {
     @Test
     fun `Given repository returns empty list, When GetPostPreviewsUseCase is invoked, Then returns empty list`() = runTest {
         // Given
-        coEvery { postPreviewRepository.getPosts(23u) } returns emptyList()
+        coEvery { postRepository.getPosts(23u) } returns emptyList()
 
         // When
         val postsList = getPostPreviewsUseCase.invoke()
@@ -45,7 +45,7 @@ class GetPostPreviewsUseCaseTest {
     @Test
     fun `Given repository throws exception, When GetPostPreviewsUseCase is invoked, Then returns empty list`() = runTest {
         // Given
-        coEvery { postPreviewRepository.getPosts(23u) } throws NullPointerException()
+        coEvery { postRepository.getPosts(23u) } throws NullPointerException()
 
         // When
         val postsList = getPostPreviewsUseCase.invoke()

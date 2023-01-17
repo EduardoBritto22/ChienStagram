@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import com.eXalt.chienstagram.R
+import com.eXalt.home.R
 import com.exalt.home.viewobjects.PostVO
 
 class PostListAdapter(

@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
-
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
@@ -8,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.eXalt.chienstagram"
+    namespace = "com.eXalt.home"
     compileSdk = AndroidOptions.COMPILE_SDK
 
     defaultConfig {
