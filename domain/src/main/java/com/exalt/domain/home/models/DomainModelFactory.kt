@@ -19,6 +19,12 @@ object DomainModelFactory {
     const val OWNER_GENDER_FEMALE = "female"
     const val OWNER_GENDER_OTHER = "other"
     const val OWNER_BIRTHDATE = "20/08/1958"
+    const val OWNER_BIRTHDATE_RAW = "1958-08-20T23:52:42.504Z"
+    const val OWNER_REGISTER_DATE = "OWNER_REGISTER_DATE"
+    const val OWNER_STREET = "5225, Hansemyrveien"
+    const val OWNER_CITY = "Vingrom Finnamasrk"
+    const val OWNER_STATE = "FinnmAirku"
+    const val OWNER_COUNTRY = "Norway"
     const val OWNER_ADDRESS = "5225, Hansemyrveien\nVingrom Finnamasrk - FinnmAirku\nNorway"
 
 
@@ -45,7 +51,7 @@ object DomainModelFactory {
         publishDate = POST_PUBLISH_DATE,
         likes = POST_LIKES,
         link = POST_LINK_URL,
-        tags = emptyList(),
+        tags = listOf("tag1", "tag2", "tag3"),
         owner = getDefaultOwnerPreviewModel(),
     )
 
@@ -55,11 +61,13 @@ object DomainModelFactory {
         pictureUrl = OWNER_PICTURE_URL
     )
 
-    fun getDefaultOwnerModel() = OwnerModel(
-        id = OWNER_ID,
+    fun getDefaultOwnerModel(
+        id: String = OWNER_ID
+    ) = OwnerModel(
+        id = id,
         name = "$OWNER_FIRST_NAME $OWNER_LAST_NAME",
         pictureUrl = OWNER_PICTURE_URL,
-        Address = OWNER_ADDRESS,
+        Address = getDefaultLocation(),
         dateOfBirth = OWNER_BIRTHDATE,
         email = OWNER_EMAIL,
         gender = OWNER_GENDER_MALE,
@@ -79,10 +87,15 @@ object DomainModelFactory {
         id = OWNER_ID,
         name = "$OWNER_FIRST_NAME $OWNER_LAST_NAME",
         pictureUrl = OWNER_PICTURE_URL,
-        Address = OWNER_ADDRESS,
+        Address = getDefaultLocation(),
         dateOfBirth = OWNER_BIRTHDATE,
         email = OWNER_EMAIL,
         gender = gender,
         phone = OWNER_PHONE
     )
+
+    fun getDefaultLocation() =
+        LocationModel(
+            OWNER_ADDRESS
+        )
 }

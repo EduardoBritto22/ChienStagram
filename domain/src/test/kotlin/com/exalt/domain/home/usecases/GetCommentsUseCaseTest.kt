@@ -18,16 +18,17 @@ class GetCommentsUseCaseTest {
     fun `Given repository returns full list, When GetCommentsByPostUseCase is invoked, Then returns full list`() = runTest {
 
         val postId = UUID.randomUUID().toString()
+        val page = 0u
 
         // Given
         val expectedCommentsList = List(20) {
             DomainModelFactory.getDefaultCommentModel(UUID.randomUUID().toString())
         }
 
-        coEvery { commentRepository.getCommentsByPost(postId) } returns expectedCommentsList
+        coEvery { commentRepository.getCommentsByPost(postId, page) } returns expectedCommentsList
 
         // When
-        val actualCommentsList = getCommentsByPostUseCase.invoke(postId)
+        val actualCommentsList = getCommentsByPostUseCase.invoke(postId, page)
 
         // Then
         assertEquals(expectedCommentsList, actualCommentsList)
@@ -37,12 +38,12 @@ class GetCommentsUseCaseTest {
     @Test
     fun `Given repository returns empty list, When GetCommentsByPostUseCase is invoked, Then returns empty list`() = runTest {
         val postId = UUID.randomUUID().toString()
-
+        val page = 0u
         // Given
-        coEvery { commentRepository.getCommentsByPost(postId) } returns emptyList()
+        coEvery { commentRepository.getCommentsByPost(postId, page) } returns emptyList()
 
         // When
-        val postsList = getCommentsByPostUseCase.invoke(postId)
+        val postsList = getCommentsByPostUseCase.invoke(postId, page)
 
         // Then
         Assert.assertTrue(postsList.isEmpty())
@@ -51,12 +52,12 @@ class GetCommentsUseCaseTest {
     @Test
     fun `Given repository throws exception, When GetCommentsByPostUseCase is invoked, Then returns empty list`() = runTest {
         val postId = UUID.randomUUID().toString()
-
+        val page = 0u
         // Given
-        coEvery { commentRepository.getCommentsByPost(postId) } throws NullPointerException()
+        coEvery { commentRepository.getCommentsByPost(postId, page) } throws NullPointerException()
 
         // When
-        val postsList = getCommentsByPostUseCase.invoke(postId)
+        val postsList = getCommentsByPostUseCase.invoke(postId, page)
 
         // Then
         Assert.assertTrue(postsList.isEmpty())
