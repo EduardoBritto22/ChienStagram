@@ -1,6 +1,8 @@
 package com.exalt.data.repositories
 
 import com.exalt.api.services.RemoteService
+import com.exalt.data.exceptions.PostNotFoundException
+import com.exalt.data.mappers.PostMapper
 import com.exalt.data.mappers.PostPreviewMapper
 import com.exalt.domain.home.models.PostModel
 import com.exalt.domain.home.models.PostPreviewModel
@@ -12,6 +14,7 @@ import javax.inject.Singleton
 internal class PostRepositoryImpl @Inject constructor(
     private val remoteService: RemoteService,
     private val postPreviewMapper: PostPreviewMapper,
+    private val postMapper: PostMapper,
 ) : PostRepository {
     override suspend fun getPosts(page: UInt): List<PostPreviewModel> =
         remoteService.getPosts(page).let { response ->
@@ -22,7 +25,13 @@ internal class PostRepositoryImpl @Inject constructor(
             }
         }
 
-    override suspend fun getPostBy(id: String): PostModel {
-        TODO("Not yet implemented")
-    }
+    override suspend fun getPostBy(id: String): PostModel =
+        remoteService.getPostById(id).let { response ->
+            if(response.isSuccessful){
+                postMapper.fromDto(response.body()!!)
+            }else{
+                throw PostNotFoundException(response.errorBody()?.string())
+            }
+        }
+
 }

@@ -7,7 +7,11 @@ import javax.inject.Inject
 class CommentMapper @Inject constructor(
     private val ownerPreviewMapper: OwnerPreviewMapper
 ) {
-    fun fromDto(comment: CommentDTO) = CommentModel(
+
+    fun fromListDto(comments: List<CommentDTO>): List<CommentModel> =
+        comments.map { fromDto(it) }
+
+    private fun fromDto(comment: CommentDTO) = CommentModel(
         id = comment.id,
         post = comment.post,
         publishDate = comment.publishDate,

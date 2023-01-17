@@ -6,7 +6,7 @@ data class OwnerModel(
     val email: String,
     val phone: String,
     val gender: String,
-    val Address: String,
+    val Address: LocationModel,
     val dateOfBirth: String,
     val pictureUrl: String
 )
