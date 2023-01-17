@@ -20,7 +20,10 @@ android {
     buildTypes {
         debug {
             buildConfigField("String", "API_ID", "\"63c5573a496ae06190e061d3\"")
+        }
 
+        release {
+            buildConfigField("String", "API_ID", "\"\"")
         }
     }
 }
