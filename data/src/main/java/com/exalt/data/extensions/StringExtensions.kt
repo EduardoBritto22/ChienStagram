@@ -8,6 +8,7 @@ import org.joda.time.LocalDateTime
 import org.joda.time.Years
 import org.joda.time.format.DateTimeFormat
 import org.joda.time.format.DateTimeFormatter
+import java.util.*
 
 
 fun String.verifyOwnerAge(birthDayDate: String): String {
@@ -42,10 +43,10 @@ fun String.formatToBirthdayDate(): String {
     }
 }
 
-fun String.formatToPostDate(): String {
+fun String.formatToPostDate(locale: Locale): String {
     return try {
         val dateTime = DateTime.parse(this)
-        val fmt: DateTimeFormatter = DateTimeFormat.mediumDateTime()
+        val fmt: DateTimeFormatter = DateTimeFormat.mediumDateTime().withLocale(locale)
         fmt.print(dateTime)
     } catch (e: Exception) {
         ""
