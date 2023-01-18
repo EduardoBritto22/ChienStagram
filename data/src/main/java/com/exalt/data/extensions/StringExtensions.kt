@@ -5,8 +5,32 @@ import com.exalt.data.R
 import org.joda.time.DateTime
 import org.joda.time.Duration
 import org.joda.time.LocalDateTime
+import org.joda.time.Years
 import org.joda.time.format.DateTimeFormat
 import org.joda.time.format.DateTimeFormatter
+
+
+fun String.verifyOwnerAge(birthDayDate: String): String {
+    return try {
+
+        // We use DateTime first to avoid some exceptions in parsing UTC format
+        val dateTime = DateTime.parse(birthDayDate)
+            .toLocalDateTime()
+            .toDateTime()
+        val now = LocalDateTime.now().toDateTime()
+
+        if(Years.yearsBetween(dateTime, now).years >= 18){
+            this
+        } else {
+            ""
+        }
+
+    } catch (e: Exception) {
+        ""
+    }
+}
+
+
 
 fun String.formatToBirthdayDate(): String {
     return try {
