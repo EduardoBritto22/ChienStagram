@@ -5,7 +5,8 @@ object DomainModelFactory {
     const val POST_TEXT = "POST_TEXT"
     const val POST_IMAGE_URL = "POST_IMAGE_URL"
     const val POST_LINK_URL = "POST_URL"
-    const val POST_PUBLISH_DATE = "POST_PUBLISH_DATE"
+    const val POST_PUBLISH_DATE = "2020-08-20T23:52:42.504Z"
+    const val POST_PUBLISH_DATE_FORMATTED = "20 août 2020 à 23:52:42"
     const val POST_LIKES = 100
 
     const val OWNER_ID = "OWNER_ID"
@@ -39,7 +40,7 @@ object DomainModelFactory {
         id = id,
         text = POST_TEXT,
         imageUrl = POST_IMAGE_URL,
-        publishDate = POST_PUBLISH_DATE,
+        publishDate = POST_PUBLISH_DATE_FORMATTED,
         owner = getDefaultOwnerPreviewModel(),
     )
 
@@ -49,7 +50,7 @@ object DomainModelFactory {
         id = id,
         text = POST_TEXT,
         imageUrl = POST_IMAGE_URL,
-        publishDate = POST_PUBLISH_DATE,
+        publishDate = POST_PUBLISH_DATE_FORMATTED,
         likes = POST_LIKES,
         link = POST_LINK_URL,
         tags = listOf("tag1", "tag2", "tag3"),

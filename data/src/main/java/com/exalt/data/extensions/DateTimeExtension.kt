@@ -18,6 +18,16 @@ fun String.formatToBirthdayDate(): String {
     }
 }
 
+fun String.formatToPostDate(): String {
+    return try {
+        val dateTime = DateTime.parse(this)
+        val fmt: DateTimeFormatter = DateTimeFormat.mediumDateTime()
+        fmt.print(dateTime)
+    } catch (e: Exception) {
+        ""
+    }
+}
+
 
 fun String.formatToDuration(resources: Resources): String {
     return try {
