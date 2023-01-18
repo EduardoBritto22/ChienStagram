@@ -1,5 +1,7 @@
 package com.exalt.data.extensions
 
+import android.content.res.Resources
+import com.exalt.data.R
 import org.joda.time.DateTime
 import org.joda.time.Duration
 import org.joda.time.LocalDateTime
@@ -17,9 +19,8 @@ fun String.formatToBirthdayDate(): String {
 }
 
 
-fun String.formatToDuration(): String {
+fun String.formatToDuration(resources: Resources): String {
     return try {
-
         val dateTime = DateTime.parse(this)// We use DateTime first to avoid some exceptions in parsing UTC format
             .toLocalDateTime()
             .toDateTime()
@@ -32,12 +33,12 @@ fun String.formatToDuration(): String {
         val minutesInYear = 365 * minutesInDay
 
         when {
-            periodInMinutes >= minutesInYear -> "${periodInMinutes / minutesInYear} a"
-            periodInMinutes >= minutesInWeek -> "${periodInMinutes / minutesInWeek} sem"
-            periodInMinutes >= minutesInDay -> "${periodInMinutes / minutesInDay} j"
-            periodInMinutes >= minutesInHour -> "${periodInMinutes / minutesInHour} h"
-            periodInMinutes > 0 -> "$periodInMinutes min"
-            periodInMinutes == 0L -> "now"
+            periodInMinutes >= minutesInYear -> resources.getString(R.string.text_duration_years, periodInMinutes / minutesInYear )
+            periodInMinutes >= minutesInWeek -> resources.getString(R.string.text_duration_weeks, periodInMinutes / minutesInWeek )
+            periodInMinutes >= minutesInDay -> resources.getString(R.string.text_duration_days, periodInMinutes / minutesInDay )
+            periodInMinutes >= minutesInHour -> resources.getString(R.string.text_duration_hours, periodInMinutes / minutesInHour )
+            periodInMinutes > 0 -> resources.getString(R.string.text_duration_minutes, periodInMinutes)
+            periodInMinutes == 0L -> resources.getString(R.string.text_duration_now)
             else -> ""
         }
     } catch (e: Exception) {
