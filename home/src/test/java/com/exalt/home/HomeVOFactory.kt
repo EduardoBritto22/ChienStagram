@@ -6,7 +6,7 @@ import com.exalt.domain.home.models.DomainModelFactory.OWNER_LAST_NAME
 import com.exalt.domain.home.models.DomainModelFactory.OWNER_PICTURE_URL
 import com.exalt.domain.home.models.DomainModelFactory.POST_ID
 import com.exalt.domain.home.models.DomainModelFactory.POST_IMAGE_URL
-import com.exalt.domain.home.models.DomainModelFactory.POST_PUBLISH_DATE
+import com.exalt.domain.home.models.DomainModelFactory.POST_PUBLISH_DATE_FORMATTED
 import com.exalt.domain.home.models.DomainModelFactory.POST_TEXT
 import com.exalt.home.viewobjects.PostVO
 
@@ -15,7 +15,7 @@ object HomeVOFactory {
         id = id,
         text = POST_TEXT,
         imageUri = POST_IMAGE_URL,
-        publishDate = POST_PUBLISH_DATE,
+        publishDate = POST_PUBLISH_DATE_FORMATTED,
         ownerId = OWNER_ID,
         ownerName = "$OWNER_FIRST_NAME $OWNER_LAST_NAME",
         ownerPictureUri = OWNER_PICTURE_URL,
