@@ -5,5 +5,5 @@ data class CommentModel(
     val message: String,
     val owner: OwnerPreviewModel,
     val post: String,
-    val publishDate: String
+    val durationFromPublishDate: String
 )

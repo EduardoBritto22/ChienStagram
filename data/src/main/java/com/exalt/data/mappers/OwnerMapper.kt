@@ -1,7 +1,7 @@
 package com.exalt.data.mappers
 
 import com.exalt.api.models.UserDTO
-import com.exalt.data.extentions.formatToBirthdayDate
+import com.exalt.data.extensions.formatToBirthdayDate
 import com.exalt.domain.home.models.OwnerModel
 import javax.inject.Inject
 

@@ -30,7 +30,8 @@ object DomainModelFactory {
 
     const val COMMENT_ID = "COMMENT_ID"
     const val COMMENT_MESSAGE = "COMMENT_MESSAGE"
-    const val COMMENT_PUBLISH_DATE = "20/08/2021"
+    const val COMMENT_PUBLISH_DATE = "2021-08-20"
+    const val COMMENT_DURATION = "1 a"
 
     fun getDefaultPostPreviewModel(
         id: String = POST_ID
@@ -80,7 +81,7 @@ object DomainModelFactory {
         owner = getDefaultOwnerPreviewModel(),
         message = COMMENT_MESSAGE,
         post = POST_ID,
-        publishDate = COMMENT_PUBLISH_DATE
+        durationFromPublishDate = COMMENT_DURATION
 
     )
     fun getDefaultOwnerModelWithGender(gender: String) = OwnerModel(
