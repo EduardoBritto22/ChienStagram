@@ -17,8 +17,6 @@ object DomainModelFactory {
     const val OWNER_PHONE = "OWNER_PHONE"
     const val OWNER_EMAIL = "OWNER_EMAIL"
     const val OWNER_GENDER_MALE = "male"
-    const val OWNER_GENDER_FEMALE = "female"
-    const val OWNER_GENDER_OTHER = "other"
     const val OWNER_BIRTHDATE = "20/08/1958"
     const val OWNER_BIRTHDATE_RAW = "1958-08-20T23:52:42.504Z"
     const val OWNER_REGISTER_DATE = "OWNER_REGISTER_DATE"
@@ -69,33 +67,21 @@ object DomainModelFactory {
         id = id,
         name = "$OWNER_FIRST_NAME $OWNER_LAST_NAME",
         pictureUrl = OWNER_PICTURE_URL,
-        Address = getDefaultLocation(),
+        address = getDefaultLocation(),
         dateOfBirth = OWNER_BIRTHDATE,
         email = OWNER_EMAIL,
         gender = OWNER_GENDER_MALE,
         phone = OWNER_PHONE
     )
-    fun getDefaultCommentModel(
-        id: String = COMMENT_ID
-    ) = CommentModel(
+
+    fun getDefaultCommentModel(id: String = COMMENT_ID) = CommentModel(
         id = id,
         owner = getDefaultOwnerPreviewModel(),
         message = COMMENT_MESSAGE,
         post = POST_ID,
         durationFromPublishDate = COMMENT_DURATION
-
     )
-    fun getDefaultOwnerModelWithGender(gender: String) = OwnerModel(
-        id = OWNER_ID,
-        name = "$OWNER_FIRST_NAME $OWNER_LAST_NAME",
-        pictureUrl = OWNER_PICTURE_URL,
-        Address = getDefaultLocation(),
-        dateOfBirth = OWNER_BIRTHDATE,
-        email = OWNER_EMAIL,
-        gender = gender,
-        phone = OWNER_PHONE
-    )
-
+    
     fun getDefaultLocation() =
         LocationModel(
             OWNER_ADDRESS

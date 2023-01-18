@@ -17,6 +17,6 @@ class OwnerMapper @Inject constructor(
         gender = user.gender,
         email = user.email,
         dateOfBirth = user.dateOfBirth.formatToBirthdayDate(),
-        Address = locationMapper.fromDto(user.location)
+        address = locationMapper.fromDto(user.location)
     )
 }
