@@ -6,5 +6,5 @@ import javax.inject.Inject
 
 class LocationMapper @Inject constructor() {
     fun fromDto(location: LocationDTO): LocationModel =
-        LocationModel("${location.street}\n${location.city} - ${location.state}\n${location.country}")
+        location.run { LocationModel("$street\n$city - $state\n$country") }
 }
