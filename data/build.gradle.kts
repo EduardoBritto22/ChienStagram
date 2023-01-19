@@ -21,6 +21,9 @@ dependencies {
     implementation(project(":api"))
     implementation(project(":domain"))
 
+    // Time
+    implementation("joda-time:joda-time:2.12.1")
+
     // Hilt
     implementation("com.google.dagger:hilt-android:${Versions.HILT}")
     kapt("com.google.dagger:hilt-android-compiler:${Versions.HILT}")

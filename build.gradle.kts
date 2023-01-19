@@ -7,6 +7,14 @@ plugins {
 }
 
 buildscript {
+
+    extra.apply {
+        val apikeyPropertiesFile = rootProject.file("apikey.properties")
+        val apikeyProperties = java.util.Properties()
+        apikeyProperties.load(java.io.FileInputStream(apikeyPropertiesFile))
+        set("apikeyProperties", apikeyProperties)
+    }
+
     repositories {
         google()
         mavenCentral()

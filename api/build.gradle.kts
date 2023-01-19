@@ -19,7 +19,8 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField("String", "API_ID", "\"63c5573a496ae06190e061d3\"")
+            val apikeyProperties: java.util.Properties by rootProject.extra
+            buildConfigField("String", "API_ID", apikeyProperties["API_ID"].toString())
         }
 
         release {
@@ -33,6 +34,8 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 }
 
 dependencies {
+
+
     // Retrofit
     api("com.squareup.retrofit2:retrofit:${Versions.RETROFIT}")
     implementation("com.squareup.retrofit2:converter-gson:${Versions.RETROFIT}")

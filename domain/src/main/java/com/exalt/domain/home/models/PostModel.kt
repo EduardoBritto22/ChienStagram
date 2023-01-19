@@ -1,5 +1,7 @@
 package com.exalt.domain.home.models
 
+import org.joda.time.DateTime
+
 data class PostModel(
     val id: String,
     val text: String,
@@ -7,5 +9,5 @@ data class PostModel(
     val likes: Int = 0,
     val link: String,
     val tags: List<String>,
-    val publishDate: String,
+    val publishDate: DateTime,
     val owner: OwnerPreviewModel)

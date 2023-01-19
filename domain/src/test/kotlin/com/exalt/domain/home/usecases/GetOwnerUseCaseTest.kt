@@ -1,7 +1,8 @@
 package com.exalt.domain.home.usecases
 
 import com.exalt.domain.home.models.DomainModelFactory.getDefaultOwnerModel
-import com.exalt.domain.home.repositories.UserRepository
+import com.exalt.domain.home.models.DomainModelFactory.getMinorOwnerModel
+import com.exalt.domain.home.repositories.OwnerRepository
 import io.mockk.coEvery
 import io.mockk.mockk
 import junit.framework.TestCase.assertNull
@@ -11,8 +12,8 @@ import org.junit.Test
 import java.util.*
 
 class GetOwnerUseCaseTest {
-    private val userRepository: UserRepository = mockk()
-    private val getOwnerUseCase = GetOwnerUseCase(userRepository)
+    private val ownerRepository: OwnerRepository = mockk()
+    private val getOwnerUseCase = GetOwnerUseCase(ownerRepository)
 
     @Test
     fun `Given repository returns right owner, When GetOwnerUseCase is invoked with an Id, Then returns the right owner`() = runTest {
@@ -22,7 +23,7 @@ class GetOwnerUseCaseTest {
         // Given
         val expectedOwner =  getDefaultOwnerModel()
 
-        coEvery { userRepository.getUserBy(id) } returns expectedOwner
+        coEvery { ownerRepository.getUserBy(id) } returns expectedOwner
 
         // When
         val actualOwner = getOwnerUseCase.invoke(id)
@@ -34,12 +35,29 @@ class GetOwnerUseCaseTest {
     @Test
     fun `Given repository throws exception, When GetOwnerUseCase is invoked, Then returns null`() = runTest {
         // Given
-        coEvery { userRepository.getUserBy("") } throws NullPointerException()
+        coEvery { ownerRepository.getUserBy("") } throws NullPointerException()
 
         // When
         val owner = getOwnerUseCase.invoke("")
 
         // Then
         assertNull(owner)
+    }
+
+    @Test
+    fun `Given repository returns right owner minor of 18, When GetOwnerUseCase is invoked, Then returns an Owner with the picture masked`() = runTest {
+        val id = UUID.randomUUID().toString()
+
+        // Given
+        val expectedOwnerPicture = ""
+        val expectedOwner = getMinorOwnerModel(id)
+
+        coEvery { ownerRepository.getUserBy(id) } returns expectedOwner
+
+        // When
+        val actualOwner = getOwnerUseCase.invoke(id)
+
+        // Then
+        assertEquals(expectedOwnerPicture, actualOwner?.pictureUrl)
     }
 }

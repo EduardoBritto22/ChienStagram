@@ -7,7 +7,7 @@ import javax.inject.Inject
 class GetCommentsByPostUseCase @Inject constructor(
     private val commentRepository: CommentRepository
 ) {
-    suspend fun invoke(id: String): List<CommentModel> = kotlin.runCatching {
-        commentRepository.getCommentsByPost(id)
+    suspend fun invoke(id: String, page: UInt): List<CommentModel> = runCatching {
+        commentRepository.getCommentsByPost(id, page)
     }.getOrDefault(emptyList())
 }

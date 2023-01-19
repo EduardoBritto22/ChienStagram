@@ -1,16 +1,33 @@
 package com.exalt.home.mappers
 
+import android.content.res.Resources
+import com.exalt.data.extensions.getLocale
 import com.exalt.domain.home.models.DomainModelFactory.getDefaultPostPreviewModel
 import com.exalt.domain.home.models.PostPreviewModel
 import com.exalt.home.HomeVOFactory.getDefaultPostVO
+import io.mockk.MockKAnnotations
+import io.mockk.every
+import io.mockk.impl.annotations.MockK
+import io.mockk.mockkStatic
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
+import org.junit.Before
 import org.junit.Test
-import java.util.UUID
+import java.util.*
 
 class PostPreviewMapperTest {
-    private val postPreviewMapper = PostPreviewMapper()
+    @MockK
+    private lateinit var resources: Resources
+    private lateinit var postPreviewMapper : PostPreviewMapper
 
+    @Before
+    fun setUp() {
+        MockKAnnotations.init(this)
+        mockkStatic(Resources::getLocale)
+        every { resources.getLocale() } returns Locale.FRANCE
+        postPreviewMapper = PostPreviewMapper(resources)
+
+    }
     @Test
     fun `Given list of Post Preview Model, when mapper is called, Then returns list of PostVO`() {
         // Given

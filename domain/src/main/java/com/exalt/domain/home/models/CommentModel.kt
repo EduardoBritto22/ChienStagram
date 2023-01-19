@@ -1,9 +1,11 @@
 package com.exalt.domain.home.models
 
+import org.joda.time.Duration
+
 data class CommentModel(
     val id: String,
     val message: String,
-    val owner: OwnerPreviewModel,
     val post: String,
-    val publishDate: String
+    val durationFromPublishDate: Duration,
+    val owner: OwnerPreviewModel
 )

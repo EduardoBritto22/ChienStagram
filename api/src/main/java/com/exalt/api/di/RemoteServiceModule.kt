@@ -8,7 +8,7 @@ import dagger.hilt.components.SingletonComponent
 
 @Module
 @InstallIn(SingletonComponent::class)
-class PostServiceModule {
+class RemoteServiceModule {
     @Provides
-    fun providePostService() = DummyApi().postService
+    fun provideRemoteService() = DummyApi().remoteService
 }
