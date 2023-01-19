@@ -1,6 +1,7 @@
 package com.exalt.domain.home.usecases
 
 import com.exalt.domain.home.models.DomainModelFactory.getDefaultOwnerModel
+import com.exalt.domain.home.models.DomainModelFactory.getMinorOwnerModel
 import com.exalt.domain.home.repositories.OwnerRepository
 import io.mockk.coEvery
 import io.mockk.mockk
@@ -41,5 +42,22 @@ class GetOwnerUseCaseTest {
 
         // Then
         assertNull(owner)
+    }
+
+    @Test
+    fun `Given repository returns right owner minor of 18, When GetOwnerUseCase is invoked, Then returns an Owner with the picture masked`() = runTest {
+        val id = UUID.randomUUID().toString()
+
+        // Given
+        val expectedOwnerPicture = ""
+        val expectedOwner = getMinorOwnerModel(id)
+
+        coEvery { ownerRepository.getUserBy(id) } returns expectedOwner
+
+        // When
+        val actualOwner = getOwnerUseCase.invoke(id)
+
+        // Then
+        assertEquals(expectedOwnerPicture, actualOwner?.pictureUrl)
     }
 }

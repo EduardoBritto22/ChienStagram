@@ -1,15 +1,12 @@
 package com.exalt.domain.home.models
 
 import com.exalt.domain.home.enums.Gender
-import org.joda.time.DateTime
-import org.joda.time.DateTimeZone
-import org.joda.time.Duration
-import org.joda.time.Instant
+import org.joda.time.*
 
 object DomainModelFactory {
 
     val startInterval1: Instant = Instant("2021-08-20T00:00:00.000Z")
-    val endInterval1: Instant = Instant("2023-01-18T00:00:00.000Z") // 18/01/2023 0h0 used in tests
+    val intervalNow: Instant = Instant("2023-01-18T00:00:00.000Z") // 18/01/2023 0h0 used in tests
 
 
     const val POST_ID = "POST_ID"
@@ -42,7 +39,7 @@ object DomainModelFactory {
     const val COMMENT_ID = "COMMENT_ID"
     const val COMMENT_MESSAGE = "COMMENT_MESSAGE"
     const val COMMENT_PUBLISH_DATE = "2021-08-20T00:00:00.000Z"
-    val COMMENT_DURATION = Duration(startInterval1, endInterval1)//"1 a"
+    val COMMENT_DURATION = Duration(startInterval1, intervalNow)//"1 a"
 
     fun getDefaultPostPreviewModel(
         id: String = POST_ID
@@ -81,6 +78,18 @@ object DomainModelFactory {
         pictureUrl = OWNER_PICTURE_URL,
         address = getDefaultLocation(),
         dateOfBirth = OWNER_BIRTHDATE,
+        email = OWNER_EMAIL,
+        gender = Gender.MALE,
+        phone = OWNER_PHONE
+    )
+    fun getMinorOwnerModel(
+        id: String = OWNER_ID
+    ) = OwnerModel(
+        id = id,
+        name = "$OWNER_FIRST_NAME $OWNER_LAST_NAME",
+        pictureUrl = OWNER_PICTURE_URL,
+        address = getDefaultLocation(),
+        dateOfBirth = LocalDate.now().minusYears(10),
         email = OWNER_EMAIL,
         gender = Gender.MALE,
         phone = OWNER_PHONE

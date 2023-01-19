@@ -3,27 +3,6 @@ package com.exalt.data.extensions
 import com.exalt.domain.home.enums.Gender
 import org.joda.time.*
 
-
-fun String.verifyOwnerAge(birthDayDate: String): String {
-    return try {
-
-        // We use DateTime first to avoid some exceptions in parsing UTC format
-        val dateTime = DateTime.parse(birthDayDate)
-            .toLocalDateTime()
-            .toDateTime()
-        val now = LocalDateTime.now().toDateTime()
-
-        if(Years.yearsBetween(dateTime, now).years >= 18){
-            this
-        } else {
-            ""
-        }
-
-    } catch (e: Exception) {
-        ""
-    }
-}
-
 fun String.formatToBirthdayDate(): LocalDate? {
     return try {
         DateTime.parse(this).toLocalDate()

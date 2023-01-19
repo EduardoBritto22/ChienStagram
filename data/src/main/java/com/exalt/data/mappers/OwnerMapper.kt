@@ -3,7 +3,6 @@ package com.exalt.data.mappers
 import com.exalt.api.models.UserDTO
 import com.exalt.data.extensions.asGender
 import com.exalt.data.extensions.formatToBirthdayDate
-import com.exalt.data.extensions.verifyOwnerAge
 import com.exalt.domain.home.models.OwnerModel
 import javax.inject.Inject
 
@@ -14,7 +13,7 @@ class OwnerMapper @Inject constructor(
     fun fromDto(user: UserDTO) = OwnerModel(
         id = user.id,
         name = "${user.firstName} ${user.lastName}",
-        pictureUrl = user.picture.verifyOwnerAge(user.dateOfBirth),
+        pictureUrl = user.picture,
         phone = user.phone,
         gender = user.gender.asGender(),
         email = user.email,
