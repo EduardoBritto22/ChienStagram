@@ -35,7 +35,10 @@ android {
 }
 
 dependencies {
-    implementation(project(":home"))
+    //Modules
+    implementation(project(":feature:home"))
+    implementation(project(":feature:post"))
+    implementation(project(":feature:user"))
 
     // Hilt
     implementation("com.google.dagger:hilt-android:${Versions.HILT}")
