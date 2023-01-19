@@ -5,9 +5,7 @@ import com.exalt.data.ModelDataFactory.getPostDTO
 import com.exalt.data.extensions.getLocale
 import com.exalt.domain.home.models.DomainModelFactory.getDefaultOwnerPreviewModel
 import com.exalt.domain.home.models.DomainModelFactory.getDefaultPostModel
-import io.mockk.MockKAnnotations
 import io.mockk.every
-import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
 import io.mockk.mockkStatic
 import org.junit.Assert.assertEquals
@@ -16,17 +14,13 @@ import org.junit.Test
 import java.util.*
 
 class PostMapperTest {
-    @MockK
-    private lateinit var resources: Resources
     private val ownerPreviewMapper: OwnerPreviewMapper = mockk()
     private lateinit var postMapper: PostMapper
 
     @Before
     fun setUp() {
-        MockKAnnotations.init(this)
         mockkStatic(Resources::getLocale)
-        every { resources.getLocale() } returns Locale.FRANCE
-        postMapper = PostMapper(ownerPreviewMapper, resources)
+        postMapper = PostMapper(ownerPreviewMapper)
 
     }
 

@@ -1,13 +1,10 @@
 package com.exalt.data.mappers
 
-import android.content.res.Resources
 import com.exalt.api.models.CommentDTO
 import com.exalt.data.ModelDataFactory.getCommentDTO
 import com.exalt.domain.home.models.DomainModelFactory.getDefaultCommentModel
 import com.exalt.domain.home.models.DomainModelFactory.getDefaultOwnerPreviewModel
-import io.mockk.MockKAnnotations
 import io.mockk.every
-import io.mockk.impl.annotations.MockK
 import io.mockk.mockk
 import io.mockk.mockkStatic
 import org.joda.time.LocalDateTime
@@ -19,28 +16,20 @@ import java.util.*
 
 class CommentMapperTest {
 
-    @MockK
-    private lateinit var resources: Resources
-
     private val ownerPreviewMapper: OwnerPreviewMapper = mockk()
     private lateinit var commentMapper : CommentMapper
 
     @Before
     fun setUp(){
-        MockKAnnotations.init(this)
 
         //Set a static date time to 18/01/2023 0h0
         mockkStatic(LocalDateTime::class)
         every { LocalDateTime.now() } returns LocalDateTime(2023,1,18,0,0)
-        commentMapper = CommentMapper(ownerPreviewMapper,resources)
+        commentMapper = CommentMapper(ownerPreviewMapper)
     }
 
     @Test
     fun `Given list of comment DTOs, When mapper is called, Then returns list of comment models`() {
-
-        every {
-            resources.getString(any(),eq(1L))
-        } returns "1 a"
 
         // Given
         val randomUuids = List(23) { UUID.randomUUID().toString() }

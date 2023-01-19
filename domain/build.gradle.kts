@@ -16,6 +16,9 @@ dependencies {
     implementation("javax.inject:javax.inject:1")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
 
+    // Time
+    implementation("joda-time:joda-time:2.12.1")
+
     // Testing
     testImplementation("junit:junit:${Versions.JUNIT}")
     testImplementation("io.mockk:mockk:${Versions.MOCKK}")
