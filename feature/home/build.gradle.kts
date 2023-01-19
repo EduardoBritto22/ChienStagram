@@ -42,6 +42,7 @@ dependencies {
     // Navigation
     implementation("androidx.navigation:navigation-runtime-ktx:${Versions.NAVIGATION}")
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}")
+    implementation("androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}")
 
     // Time
     implementation("joda-time:joda-time:2.12.1")

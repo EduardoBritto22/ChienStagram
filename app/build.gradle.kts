@@ -44,6 +44,11 @@ dependencies {
     implementation("com.google.dagger:hilt-android:${Versions.HILT}")
     kapt("com.google.dagger:hilt-android-compiler:${Versions.HILT}")
 
+    // Navigation
+    api("androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}")
+    api("androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}")
+    api("androidx.navigation:navigation-dynamic-features-fragment:${Versions.NAVIGATION}")
+
     // UI
     implementation("androidx.core:core-ktx:${Versions.ANDROID_CORE}")
     implementation("androidx.appcompat:appcompat:${Versions.APP_COMPAT}")
