@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.exalt.post"
+    namespace = "com.exalt.feature.post"
     compileSdk = AndroidOptions.COMPILE_SDK
 
     defaultConfig {

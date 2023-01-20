@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.exalt.user"
+    namespace = "com.exalt.feature.user"
     compileSdk = AndroidOptions.COMPILE_SDK
 
     defaultConfig {

@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.eXalt.home"
+    namespace = "com.eXalt.feature.home"
     compileSdk = AndroidOptions.COMPILE_SDK
 
     defaultConfig {
