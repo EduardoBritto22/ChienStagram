@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.eXalt.home.R
 import com.exalt.home.adapters.PostListAdapter
-import com.exalt.home.extensions.handleVisibility
+import com.exalt.core.ui.extensions.handleVisibility
 import com.exalt.home.viewmodels.HomeViewModel
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -6,4 +6,7 @@
     <string name="text_duration_hours">%1$d h</string>
     <string name="text_duration_minutes">%1$d min</string>
     <string name="text_duration_now">Now</string>
+
+    <string name="user_picture">user picture</string>
+    <string name="post_image">post image</string>
 </resources>

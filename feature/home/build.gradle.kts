@@ -30,6 +30,7 @@ dependencies {
     implementation("com.google.android.material:material:${Versions.MATERIAL}")
     implementation(project(":domain"))
     implementation(project(":data"))
+    implementation(project(":core:ui"))
 
     // Hilt
     implementation("com.google.dagger:hilt-android:${Versions.HILT}")
