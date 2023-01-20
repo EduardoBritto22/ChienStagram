@@ -17,6 +17,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -42,4 +46,11 @@ dependencies {
     implementation("androidx.navigation:navigation-runtime-ktx:${Versions.NAVIGATION}")
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}")
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}")
+
+    // Glide
+    implementation("com.github.bumptech.glide:glide:${Versions.GLIDE}")
+    annotationProcessor("com.github.bumptech.glide:compiler:${Versions.GLIDE}")
+
+    // Time
+    implementation("joda-time:joda-time:2.12.1")
 }
