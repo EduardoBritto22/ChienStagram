@@ -4,7 +4,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/layout_post_info_bg"
-    android:padding="5dp"
+    android:padding="4dp"
+    android:layout_marginEnd="5dp"
     android:orientation="horizontal">
 
     <TextView
@@ -13,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textColor="@color/white"
-        android:textSize="18sp"
+        android:textSize="16sp"
         tools:text="pet" />
 
 </LinearLayout>

@@ -19,7 +19,6 @@ class PostViewModel @Inject constructor(
     private val getCommentsUseCase: GetCommentsByPostUseCase,
     private val commentVoMapper: CommentVoMapper,
     private val postVoMapper: PostVoMapper,
-
     ): ViewModel() {
 
     private val _isLoading = MutableLiveData(true)

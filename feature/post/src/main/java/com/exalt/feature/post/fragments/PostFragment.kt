@@ -8,10 +8,15 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.exalt.core.ui.extensions.handleVisibility
+import com.exalt.core.ui.extensions.loadImage
+import com.exalt.core.ui.extensions.loadUserImage
 import com.exalt.feature.post.adapters.CommentListAdapter
+import com.exalt.feature.post.adapters.TagListAdapter
 import com.exalt.feature.post.databinding.FragmentPostBinding
 import com.exalt.feature.post.viewmodels.PostViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class PostFragment : Fragment() {
 
     private var _binding: FragmentPostBinding? = null
@@ -31,6 +36,8 @@ class PostFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewModel.postId = "60d21b8667d0d8992e610d3f"
 
         setUpToolbar()
         binding.commentList.apply {
@@ -54,17 +61,34 @@ class PostFragment : Fragment() {
 
     private fun initObservers() {
 
-        viewModel.isLoading.observe(viewLifecycleOwner) {isVisible->
+        viewModel.isLoading.observe(viewLifecycleOwner) { isVisible ->
             binding.progressPost.handleVisibility(isVisible)
         }
 
         viewModel.post.observe(viewLifecycleOwner) {
-            it?.let {post ->
+            it?.let { post ->
+
                 binding.postText.text = post.text
+                binding.postPicture.loadImage(post.imageUri)
+
+                binding.postUserInfo.postUserName.text = post.ownerName
+                binding.postUserInfo.postDate.text = post.publishDate
+
+                binding.postUserInfo.postUserPicture.loadUserImage(post.ownerPictureUri)
+
+                binding.postInformation.postInformationLikes.postInfoNumber.text = post.likes.toString()
+                binding.postInformation.postInformationTags.postInfoNumber.text = post.tags.size.toString()
+                binding.postInformation.postInformationComments.postInfoNumber.text = "0"
+
+                binding.postInformation.tagList.apply {
+                    adapter = TagListAdapter(post.tags)
+                }
             }
         }
 
-        viewModel.comments.observe(viewLifecycleOwner) { comments->
+        viewModel.comments.observe(viewLifecycleOwner) { comments ->
+
+            binding.postInformation.postInformationComments.postInfoNumber.text = comments.size.toString()
             (binding.commentList.adapter as CommentListAdapter).submitList(comments)
         }
     }

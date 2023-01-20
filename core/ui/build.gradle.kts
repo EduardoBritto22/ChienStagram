@@ -41,6 +41,11 @@ dependencies {
     // Time
     implementation("joda-time:joda-time:2.12.1")
 
+    // Glide
+    implementation("com.github.bumptech.glide:glide:${Versions.GLIDE}")
+    annotationProcessor("com.github.bumptech.glide:compiler:${Versions.GLIDE}")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+
     // Testing
     testImplementation("junit:junit:${Versions.JUNIT}")
     testImplementation("io.mockk:mockk:${Versions.MOCKK}")

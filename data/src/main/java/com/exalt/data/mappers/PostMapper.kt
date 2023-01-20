@@ -16,7 +16,7 @@ class PostMapper @Inject constructor(
             publishDate = post.publishDate.formatToPostDate(),
             owner = ownerPreviewMapper.fromDto(post.owner),
             tags = post.tags,
-            link = post.link,
+            link = post.link.orEmpty(),
             likes = post.likes
         )
     }

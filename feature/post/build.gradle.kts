@@ -19,6 +19,7 @@ android {
     }
 
     buildFeatures {
+        dataBinding = true
         viewBinding = true
     }
 }
@@ -52,5 +53,5 @@ dependencies {
     annotationProcessor("com.github.bumptech.glide:compiler:${Versions.GLIDE}")
 
     // Time
-    implementation("joda-time:joda-time:2.12.1")
+    implementation("joda-time:joda-time:${Versions.JODA_TIME}")
 }

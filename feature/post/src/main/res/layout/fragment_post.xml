@@ -42,7 +42,9 @@
                 app:layout_constraintTop_toTopOf="parent"
                 tools:src="@tools:sample/backgrounds/scenic" />
 
-            <include layout="@layout/post_user_info"/>
+            <include
+                android:id="@+id/post_user_info"
+                layout="@layout/post_user_info"/>
 
         </RelativeLayout>
 
@@ -55,6 +57,7 @@
             tools:text="teste te de tess dsdsd hhssdkjdso lksdlk nksdj lljqsdlkhq lkjlqsdn;qswwwww xxxxx  x ljdqzodj sjkqsjdkljsdk j qsknsqdkqlkdqlskijqsdknlsqdjqsldkjqsldk " />
 
         <include
+            android:id="@+id/post_information"
             layout="@layout/post_information"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

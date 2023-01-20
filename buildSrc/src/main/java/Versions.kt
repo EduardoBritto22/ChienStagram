@@ -7,6 +7,7 @@ object Versions {
     const val MATERIAL = "1.7.0"
     const val NAVIGATION = "2.5.3"
     const val RETROFIT = "2.9.0"
+    const val JODA_TIME = "2.12.1"
 
     // Gradle
     const val ANDROID_PLUGIN = "7.3.1"
