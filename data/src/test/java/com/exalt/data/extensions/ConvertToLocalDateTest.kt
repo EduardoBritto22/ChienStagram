@@ -7,7 +7,7 @@ import org.joda.time.DateTime
 import org.joda.time.DateTimeZone
 import org.junit.Test
 
-class FormatToBirthdayDateTest {
+class ConvertToLocalDateTest {
 
     @Test
     fun `Given a correct Date string, When call the format function, Then return the date in the correct birthday format` () = runTest {
@@ -16,7 +16,7 @@ class FormatToBirthdayDateTest {
         val expectedDate = DateTime(rawDateString, DateTimeZone.UTC).toLocalDate()
 
         //When
-        val actualBirthdayDate = rawDateString.formatToBirthdayDate()
+        val actualBirthdayDate = rawDateString.convertToLocalDate()
 
         //Then
         assertEquals(expectedDate,actualBirthdayDate)
@@ -29,7 +29,7 @@ class FormatToBirthdayDateTest {
         val rawDateString = ""
 
         //When
-        val actualBirthdayDate = rawDateString.formatToBirthdayDate()
+        val actualBirthdayDate = rawDateString.convertToLocalDate()
 
         //Then
         assertNull(actualBirthdayDate)

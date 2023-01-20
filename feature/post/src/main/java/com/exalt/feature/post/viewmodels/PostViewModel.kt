@@ -27,7 +27,7 @@ class PostViewModel @Inject constructor(
     var postId = ""
     private var commentsPage = 0u
 
-    val post: LiveData<PostVO> = liveData {
+    val post: LiveData<PostVO?> = liveData {
         emit(
             postVoMapper.toPostVO(getPostUseCase.invoke(postId))
         )

@@ -1,7 +1,7 @@
 package com.exalt.feature.home.mappers
 
 import android.content.res.Resources
-import com.exalt.data.extensions.formatToPostDate
+import com.exalt.core.ui.extensions.formatToLocalMediumDateTimeString
 import com.exalt.data.extensions.getLocale
 import com.exalt.domain.home.models.PostPreviewModel
 import com.exalt.feature.home.viewobjects.PostVO
@@ -21,7 +21,7 @@ class PostPreviewMapper @Inject constructor(
             id = postPreviewModel.id,
             text = postPreviewModel.text,
             imageUri = postPreviewModel.imageUrl,
-            publishDate = postPreviewModel.publishDate.formatToPostDate(locale),
+            publishDate = postPreviewModel.publishDate.formatToLocalMediumDateTimeString(locale),
             ownerId = postPreviewModel.owner.id,
             ownerName = postPreviewModel.owner.name,
             ownerPictureUri = postPreviewModel.owner.pictureUrl

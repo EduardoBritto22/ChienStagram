@@ -12,7 +12,7 @@ import org.junit.Test
 
 private const val utcTimeFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 
-class FormatToDurationTest {
+class ConvertToDurationTest {
 
     @Before
     fun setUp(){
@@ -33,7 +33,7 @@ class FormatToDurationTest {
         val expectedDuration = Duration(minus21WeeksDate.toDateTime(DateTimeZone.UTC), LocalDateTime.now().toDateTime(DateTimeZone.UTC))
 
         //When
-        val duration = rawDateString.formatToDuration()
+        val duration = rawDateString.convertToDuration()
 
         //Then
         assertEquals(expectedDuration,duration)
@@ -48,7 +48,7 @@ class FormatToDurationTest {
         val expectedDuration = Duration(15000)
 
         //When
-        val actualDuration = rawDateString.formatToDuration()
+        val actualDuration = rawDateString.convertToDuration()
 
         //Then
         assertEquals(expectedDuration,actualDuration)
@@ -63,7 +63,7 @@ class FormatToDurationTest {
         val expectedDuration = Duration(0)
 
         //When
-        val actualDuration = rawDateString.formatToDuration()
+        val actualDuration = rawDateString.convertToDuration()
 
         //Then
         assertEquals(expectedDuration,actualDuration)
