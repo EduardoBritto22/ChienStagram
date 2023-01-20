@@ -36,10 +36,6 @@ dependencies {
     implementation("com.google.dagger:hilt-android:${Versions.HILT}")
     kapt("com.google.dagger:hilt-android-compiler:${Versions.HILT}")
 
-    // Glide
-    implementation("com.github.bumptech.glide:glide:${Versions.GLIDE}")
-    annotationProcessor("com.github.bumptech.glide:compiler:${Versions.GLIDE}")
-
     // Navigation
     implementation("androidx.navigation:navigation-runtime-ktx:${Versions.NAVIGATION}")
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}")

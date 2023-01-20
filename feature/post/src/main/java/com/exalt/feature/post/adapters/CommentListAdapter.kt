@@ -1,6 +1,5 @@
 package com.exalt.feature.post.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,22 +8,17 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.exalt.core.ui.extensions.loadUserImage
 import com.exalt.feature.post.R
 import com.exalt.feature.post.viewobjects.CommentVO
 
-class CommentListAdapter(
-    private val context: Context
-) : ListAdapter<CommentVO, CommentListAdapter.CommentViewHolder>(CommentDiffCallBack()) {
+class CommentListAdapter : ListAdapter<CommentVO, CommentListAdapter.CommentViewHolder>(CommentDiffCallBack()) {
     inner class CommentViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(comment: CommentVO) {
             itemView.findViewById<ImageView>(R.id.comment_user_picture).let {
-                Glide.with(context)
-                    .load(comment.ownerPictureUri)
-                    .circleCrop()
-                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
-                    .into(it)
+
+                it.loadUserImage(comment.ownerPictureUri)
+
                 it.setOnClickListener {
                     onUserClick?.invoke(comment.ownerId)
                 }

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.exalt.feature.post.R
 
 class TagListAdapter(
-    val tags: List<String>
+    private val tags: List<String>
 ) : Adapter<TagListAdapter.TagViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TagViewHolder {

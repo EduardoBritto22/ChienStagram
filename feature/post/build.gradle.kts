@@ -48,10 +48,6 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}")
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}")
 
-    // Glide
-    implementation("com.github.bumptech.glide:glide:${Versions.GLIDE}")
-    annotationProcessor("com.github.bumptech.glide:compiler:${Versions.GLIDE}")
-
     // Time
     implementation("joda-time:joda-time:${Versions.JODA_TIME}")
 }

@@ -42,7 +42,7 @@ class PostFragment : Fragment() {
         setUpToolbar()
         binding.commentList.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = CommentListAdapter(this@PostFragment.requireContext())
+            adapter = CommentListAdapter()
         }
         initObservers()
     }

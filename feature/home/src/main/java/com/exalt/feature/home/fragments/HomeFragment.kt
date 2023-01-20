@@ -38,7 +38,7 @@ class HomeFragment : Fragment() {
     private fun initViews() {
         postRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = PostListAdapter(this@HomeFragment.requireContext()).apply {
+            adapter = PostListAdapter().apply {
                 onUserClick = { userId ->
                     // TODO NAVIGATE TO USER SCREEN
                 }
