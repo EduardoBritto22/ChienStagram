@@ -27,6 +27,8 @@ dependencies {
     implementation("com.google.android.material:material:${Versions.MATERIAL}")
     implementation(project(":domain"))
     implementation(project(":data"))
+    implementation(project(":core:ui"))
+
 
     // Hilt
     implementation("com.google.dagger:hilt-android:${Versions.HILT}")
@@ -41,4 +43,28 @@ dependencies {
     implementation("androidx.navigation:navigation-runtime-ktx:${Versions.NAVIGATION}")
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}")
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}")
+
+    // Time
+    implementation("joda-time:joda-time:${Versions.JODA_TIME}")
+
+    //Compose
+    val composeBom = platform("androidx.compose:compose-bom:2022.12.00")
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+
+    // Choose one of the following:
+    // Material Design 3
+    implementation("androidx.compose.material3:material3")
+
+    // or only import the main APIs for the underlying toolkit systems,
+    // such as input and measurement/layout
+    implementation("androidx.compose.ui:ui")
+
+    // Android Studio Preview support
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+
+    // UI Tests
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
 }
