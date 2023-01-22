@@ -11,11 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.eXalt.feature.home.R
 import com.exalt.core.ui.extensions.loadImage
 import com.exalt.core.ui.extensions.loadUserImage
-import com.exalt.feature.home.viewobjects.PostVO
+import com.exalt.feature.home.viewobjects.PostPreviewVO
 
-class PostListAdapter : ListAdapter<PostVO, PostListAdapter.PostViewHolder>(PostDiffCallBack()) {
+class PostListAdapter : ListAdapter<PostPreviewVO, PostListAdapter.PostViewHolder>(PostDiffCallBack()) {
     inner class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bind(post: PostVO) {
+        fun bind(post: PostPreviewVO) {
             itemView.findViewById<ImageView>(R.id.user_picture).let {
                 it.loadUserImage(post.ownerPictureUri)
                 it.setOnClickListener {
@@ -39,12 +39,12 @@ class PostListAdapter : ListAdapter<PostVO, PostListAdapter.PostViewHolder>(Post
     var onUserClick: ((String) -> Unit)? = null
     var onPostClick: ((String) -> Unit)? = null
 
-    private class PostDiffCallBack : DiffUtil.ItemCallback<PostVO>() {
+    private class PostDiffCallBack : DiffUtil.ItemCallback<PostPreviewVO>() {
         /**
          * Called to check whether two objects represent the same item.
          * For example, if your items have unique ids, this method should check their id equality.
          */
-        override fun areItemsTheSame(oldItem: PostVO, newItem: PostVO) =
+        override fun areItemsTheSame(oldItem: PostPreviewVO, newItem: PostPreviewVO) =
             oldItem.id == newItem.id
 
         /**
@@ -52,7 +52,7 @@ class PostListAdapter : ListAdapter<PostVO, PostListAdapter.PostViewHolder>(Post
          * For example, if you are using DiffUtil with a RecyclerView.Adapter, you should
          * return whether the items' visual representations are the same.
          */
-        override fun areContentsTheSame(oldItem: PostVO, newItem: PostVO) =
+        override fun areContentsTheSame(oldItem: PostPreviewVO, newItem: PostPreviewVO) =
             oldItem.ownerPictureUri == newItem.ownerPictureUri &&
                     oldItem.ownerName == newItem.ownerName &&
                     oldItem.publishDate == newItem.publishDate &&

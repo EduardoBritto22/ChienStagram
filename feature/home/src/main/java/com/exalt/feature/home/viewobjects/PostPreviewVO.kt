@@ -1,6 +1,6 @@
 package com.exalt.feature.home.viewobjects
 
-data class PostVO (
+data class PostPreviewVO (
     val id: String,
     val text: String,
     val imageUri: String,
