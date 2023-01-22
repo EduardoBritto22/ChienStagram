@@ -13,9 +13,19 @@ android {
         minSdk = AndroidOptions.MIN_SDK
     }
 
+    @Suppress("UnstableApiUsage")
+    buildFeatures {
+        compose = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    @Suppress("UnstableApiUsage")
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.3.2"
     }
 }
 
@@ -52,12 +62,9 @@ dependencies {
     implementation(composeBom)
     androidTestImplementation(composeBom)
 
-    // Choose one of the following:
     // Material Design 3
     implementation("androidx.compose.material3:material3")
 
-    // or only import the main APIs for the underlying toolkit systems,
-    // such as input and measurement/layout
     implementation("androidx.compose.ui:ui")
 
     // Android Studio Preview support
@@ -67,4 +74,8 @@ dependencies {
     // UI Tests
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    //Compose images loader
+    implementation("io.coil-kt:coil-compose:2.2.2")
+
 }
