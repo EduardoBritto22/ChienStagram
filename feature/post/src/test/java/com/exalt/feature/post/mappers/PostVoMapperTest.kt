@@ -1,0 +1,53 @@
+package com.exalt.feature.post.mappers
+
+import android.content.res.Resources
+import com.exalt.data.extensions.getLocale
+import com.exalt.domain.home.models.DomainModelFactory
+import com.exalt.feature.post.PostFeatureVOsFactory.getDefaultPostVO
+import io.mockk.MockKAnnotations
+import io.mockk.every
+import io.mockk.impl.annotations.MockK
+import io.mockk.mockkStatic
+import org.joda.time.LocalDateTime
+import org.junit.Assert
+import org.junit.Before
+import org.junit.Test
+import java.util.*
+
+class PostVoMapperTest {
+    @MockK
+    private lateinit var resources: Resources
+    private lateinit var postVoMapper : PostVoMapper
+
+    @Before
+    fun setUp() {
+        MockKAnnotations.init(this)
+
+        mockkStatic(Resources::getLocale)
+        every { resources.getLocale() } returns Locale.FRANCE
+
+        //Set a static date time to 18/01/2023 0h0
+        mockkStatic(LocalDateTime::class)
+        every { LocalDateTime.now() } returns LocalDateTime(2022,1,18,0,0)
+
+        postVoMapper = PostVoMapper(resources)
+
+    }
+    @Test
+    fun `Given list of Post Model, when mapper is called, Then returns list of PostVO`() {
+        // Given
+        val randomUuid = UUID.randomUUID().toString()
+
+        // When
+        val actualPostVO = postVoMapper.toPostVO(
+            DomainModelFactory.getDefaultPostModel(
+                randomUuid
+            )
+        )
+        val expectedPostVO =  getDefaultPostVO(randomUuid)
+
+        // Then
+        Assert.assertEquals(expectedPostVO, actualPostVO)
+    }
+
+}

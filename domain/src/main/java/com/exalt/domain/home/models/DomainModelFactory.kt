@@ -39,6 +39,7 @@ object DomainModelFactory {
     const val COMMENT_ID = "COMMENT_ID"
     const val COMMENT_MESSAGE = "COMMENT_MESSAGE"
     const val COMMENT_PUBLISH_DATE = "2021-08-20T00:00:00.000Z"
+    const val COMMENT_PUBLISH_DURATION = "1 a"
     val COMMENT_DURATION = Duration(startInterval1, intervalNow)//"1 a"
 
     fun getDefaultPostPreviewModel(
