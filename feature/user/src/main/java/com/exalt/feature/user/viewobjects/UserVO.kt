@@ -10,5 +10,6 @@ data class UserVO(
     val genderConfig: GenderConfig,
     val dateOfBirth: String,
     val pictureUrl: String,
-    val address: String
+    val address: String,
+    val profileBackground: String
 )

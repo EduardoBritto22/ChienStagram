@@ -19,7 +19,8 @@ class UserVoMapper @Inject constructor() {
                 genderConfig = getGenderIcon(ownerModel.gender),
                 dateOfBirth = ownerModel.dateOfBirth.formatToBirthDateString(),
                 address = ownerModel.address.address,
-                pictureUrl = ownerModel.pictureUrl
+                pictureUrl = ownerModel.pictureUrl,
+                profileBackground = "https://as1.ftcdn.net/v2/jpg/04/14/17/88/1000_F_414178875_7GqEVTasELylv9Y7vNxPjDaMCJlAToMR.jpg"
             )
         }
         return null

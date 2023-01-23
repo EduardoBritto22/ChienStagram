@@ -40,7 +40,6 @@ fun UserPicture(
             contentDescription = "User picture",
             Modifier
                 .size(imageSize)
-                //  .offset(y = imageSize / 2) // Half of the height
                 .border(BorderStroke(1.dp, user.genderConfig.color), CircleShape)
                 .clip(CircleShape),
             contentScale = ContentScale.FillBounds,
@@ -53,7 +52,6 @@ fun UserPicture(
             modifier = Modifier.align(Alignment.BottomEnd)
                 .offset(x = 8.dp)
         )
-
     }
 
 }
@@ -71,7 +69,8 @@ private fun UserPicturePreview() {
                 GenderConfig.OTHER,
                 DomainModelFactory.OWNER_BIRTHDATE_RAW,
                 pictureUrl = DomainModelFactory.OWNER_PICTURE_URL,
-                address = DomainModelFactory.OWNER_ADDRESS
+                address = DomainModelFactory.OWNER_ADDRESS,
+                profileBackground = "https://as1.ftcdn.net/v2/jpg/04/14/17/88/1000_F_414178875_7GqEVTasELylv9Y7vNxPjDaMCJlAToMR.jpg"
             )
         )
     }
