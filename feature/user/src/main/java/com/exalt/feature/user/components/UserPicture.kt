@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,10 +18,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.exalt.core.ui.R
 import com.exalt.core.domain.home.models.DomainModelFactory
+import com.exalt.core.ui.R
 import com.exalt.feature.user.enums.GenderConfig
 import com.exalt.feature.user.viewobjects.UserVO
+import com.google.accompanist.themeadapter.material3.Mdc3Theme
 
 @Composable
 fun UserPicture(
@@ -59,7 +59,7 @@ fun UserPicture(
 @Preview
 @Composable
 private fun UserPicturePreview() {
-    MaterialTheme {
+    Mdc3Theme {
         UserPicture(
             UserVO(
                 "",

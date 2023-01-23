@@ -46,6 +46,9 @@ dependencies {
     annotationProcessor("com.github.bumptech.glide:compiler:${Versions.GLIDE}")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 
+    implementation("com.google.android.material:material:${Versions.MATERIAL}")
+
+
     // Testing
     testImplementation("junit:junit:${Versions.JUNIT}")
     testImplementation("io.mockk:mockk:${Versions.MOCKK}")

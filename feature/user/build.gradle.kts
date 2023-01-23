@@ -64,6 +64,7 @@ dependencies {
 
     // Material Design 3
     implementation("androidx.compose.material3:material3")
+    implementation("com.google.android.material:material:${Versions.MATERIAL}")
 
     implementation("androidx.compose.ui:ui")
 
@@ -77,5 +78,8 @@ dependencies {
 
     //Compose images loader
     implementation("io.coil-kt:coil-compose:2.2.2")
+
+    //Adapter from XML theme to Compose
+    implementation("com.google.accompanist:accompanist-themeadapter-material3:0.29.0-alpha")
 
 }

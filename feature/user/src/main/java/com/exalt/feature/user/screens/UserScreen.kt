@@ -19,6 +19,7 @@ import com.exalt.feature.user.components.ContactInformation
 import com.exalt.feature.user.components.ProfileHeader
 import com.exalt.feature.user.enums.GenderConfig
 import com.exalt.feature.user.viewobjects.UserVO
+import com.google.accompanist.themeadapter.material3.Mdc3Theme
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -57,7 +58,7 @@ fun UserScreen(userVO: UserVO) {
 @Preview(showSystemUi = true)
 @Composable
 fun UserScreenPreview() {
-    MaterialTheme {
+    Mdc3Theme {
         Surface {
             UserScreen(
                 UserVO(
@@ -74,5 +75,4 @@ fun UserScreenPreview() {
             )
         }
     }
-
 }

@@ -31,5 +31,4 @@ private fun ContactInformationItemPreview() {
     MaterialTheme {
         ContactInformationItem(title = "Address", information = OWNER_ADDRESS)
     }
-
 }

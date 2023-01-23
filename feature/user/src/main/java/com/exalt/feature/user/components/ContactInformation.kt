@@ -3,7 +3,6 @@ package com.exalt.feature.user.components
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.material3.Divider
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -13,6 +12,7 @@ import androidx.compose.ui.unit.sp
 import com.exalt.core.domain.home.models.DomainModelFactory
 import com.exalt.feature.user.enums.GenderConfig
 import com.exalt.feature.user.viewobjects.UserVO
+import com.google.accompanist.themeadapter.material3.Mdc3Theme
 
 @Composable
 fun ContactInformation(user: UserVO, modifier: Modifier = Modifier) {
@@ -31,7 +31,7 @@ fun ContactInformation(user: UserVO, modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun ContactInformationPreview() {
-    MaterialTheme {
+    Mdc3Theme {
         ContactInformation( UserVO(
             "",
             name = DomainModelFactory.OWNER_FIRST_NAME,

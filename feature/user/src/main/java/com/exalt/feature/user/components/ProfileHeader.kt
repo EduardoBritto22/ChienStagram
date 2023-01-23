@@ -1,7 +1,6 @@
 package com.exalt.feature.user.components
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,10 +14,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
-import com.exalt.core.ui.R
 import com.exalt.core.domain.home.models.DomainModelFactory
+import com.exalt.core.ui.R
 import com.exalt.feature.user.enums.GenderConfig
 import com.exalt.feature.user.viewobjects.UserVO
+import com.google.accompanist.themeadapter.material3.Mdc3Theme
 
 @Composable
 fun ProfileHeader(userVO: UserVO, modifier: Modifier = Modifier) {
@@ -65,7 +65,7 @@ fun ProfileHeader(userVO: UserVO, modifier: Modifier = Modifier) {
 @Preview
 @Composable
 private fun ProfileHeaderPreview() {
-    MaterialTheme {
+    Mdc3Theme {
         ProfileHeader(
             UserVO(
                 "",
