@@ -2,7 +2,7 @@ package com.exalt.feature.post.mappers
 
 import android.content.res.Resources
 import com.exalt.core.ui.extensions.formatToLocalMediumDateTimeString
-import com.exalt.data.extensions.getLocale
+import com.exalt.core.data.extensions.getLocale
 import com.exalt.domain.home.models.PostModel
 import com.exalt.feature.post.viewobjects.PostVO
 import javax.inject.Inject

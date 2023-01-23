@@ -16,7 +16,7 @@ rootProject.name = "ChienStagram"
 include(":app")
 include(":api")
 include(":domain")
-include(":data")
+include(":core:data")
 include(":feature:home")
 include(":feature:post")
 include(":feature:user")

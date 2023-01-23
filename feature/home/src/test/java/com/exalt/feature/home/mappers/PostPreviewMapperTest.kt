@@ -1,7 +1,7 @@
 package com.exalt.feature.home.mappers
 
 import android.content.res.Resources
-import com.exalt.data.extensions.getLocale
+import com.exalt.core.data.extensions.getLocale
 import com.exalt.domain.home.models.DomainModelFactory.getDefaultPostPreviewModel
 import com.exalt.domain.home.models.PostPreviewModel
 import com.exalt.feature.home.HomeVOFactory.getDefaultPostVO
