@@ -2,7 +2,7 @@ package com.exalt.data.mappers
 
 import com.exalt.core.data.mappers.OwnerPreviewMapper
 import com.exalt.data.ModelDataFactory.getUserPreviewDTO
-import com.exalt.domain.home.models.DomainModelFactory.getDefaultOwnerPreviewModel
+import com.exalt.core.domain.home.models.DomainModelFactory.getDefaultOwnerPreviewModel
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

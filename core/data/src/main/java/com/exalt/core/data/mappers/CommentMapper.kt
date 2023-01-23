@@ -2,7 +2,7 @@ package com.exalt.core.data.mappers
 
 import com.exalt.api.models.CommentDTO
 import com.exalt.core.data.extensions.convertToDuration
-import com.exalt.domain.home.models.CommentModel
+import com.exalt.core.domain.home.models.CommentModel
 import javax.inject.Inject
 
 class CommentMapper @Inject constructor(

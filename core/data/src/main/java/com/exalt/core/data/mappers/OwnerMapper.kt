@@ -2,8 +2,8 @@ package com.exalt.core.data.mappers
 
 import com.exalt.api.models.UserDTO
 import com.exalt.core.data.extensions.convertToLocalDate
-import com.exalt.domain.home.enums.Gender
-import com.exalt.domain.home.models.OwnerModel
+import com.exalt.core.domain.home.enums.Gender
+import com.exalt.core.domain.home.models.OwnerModel
 import javax.inject.Inject
 
 class OwnerMapper @Inject constructor(

@@ -1,10 +1,10 @@
 package com.exalt.feature.post
 
-import com.exalt.domain.home.models.DomainModelFactory
-import com.exalt.domain.home.models.DomainModelFactory.COMMENT_MESSAGE
-import com.exalt.domain.home.models.DomainModelFactory.POST_IMAGE_URL
-import com.exalt.domain.home.models.DomainModelFactory.POST_LIKES
-import com.exalt.domain.home.models.DomainModelFactory.POST_TEXT
+import com.exalt.core.domain.home.models.DomainModelFactory
+import com.exalt.core.domain.home.models.DomainModelFactory.COMMENT_MESSAGE
+import com.exalt.core.domain.home.models.DomainModelFactory.POST_IMAGE_URL
+import com.exalt.core.domain.home.models.DomainModelFactory.POST_LIKES
+import com.exalt.core.domain.home.models.DomainModelFactory.POST_TEXT
 import com.exalt.feature.post.viewobjects.CommentVO
 import com.exalt.feature.post.viewobjects.PostVO
 

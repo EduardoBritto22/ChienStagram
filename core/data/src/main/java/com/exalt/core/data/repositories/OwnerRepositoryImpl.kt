@@ -3,8 +3,8 @@ package com.exalt.core.data.repositories
 import com.exalt.api.services.RemoteService
 import com.exalt.core.data.exceptions.OwnerNotFoundException
 import com.exalt.core.data.mappers.OwnerMapper
-import com.exalt.domain.home.models.OwnerModel
-import com.exalt.domain.home.repositories.OwnerRepository
+import com.exalt.core.domain.home.models.OwnerModel
+import com.exalt.core.domain.home.repositories.OwnerRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 

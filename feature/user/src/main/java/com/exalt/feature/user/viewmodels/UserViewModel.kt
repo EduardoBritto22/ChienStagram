@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
-import com.exalt.domain.home.usecases.GetOwnerUseCase
+import com.exalt.core.domain.home.usecases.GetOwnerUseCase
 import com.exalt.feature.user.mappers.UserVoMapper
 import com.exalt.feature.user.viewobjects.UserVO
 import dagger.hilt.android.lifecycle.HiltViewModel

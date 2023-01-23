@@ -2,8 +2,8 @@ package com.exalt.core.data.repositories
 
 import com.exalt.api.services.RemoteService
 import com.exalt.core.data.mappers.CommentMapper
-import com.exalt.domain.home.models.CommentModel
-import com.exalt.domain.home.repositories.CommentRepository
+import com.exalt.core.domain.home.models.CommentModel
+import com.exalt.core.domain.home.repositories.CommentRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 

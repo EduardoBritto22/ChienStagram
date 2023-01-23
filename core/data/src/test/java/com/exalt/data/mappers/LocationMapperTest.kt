@@ -2,7 +2,7 @@ package com.exalt.data.mappers
 
 import com.exalt.core.data.mappers.LocationMapper
 import com.exalt.data.ModelDataFactory.getLocationDTO
-import com.exalt.domain.home.models.DomainModelFactory.getDefaultLocation
+import com.exalt.core.domain.home.models.DomainModelFactory.getDefaultLocation
 import org.junit.Assert.assertEquals
 import org.junit.Test
 

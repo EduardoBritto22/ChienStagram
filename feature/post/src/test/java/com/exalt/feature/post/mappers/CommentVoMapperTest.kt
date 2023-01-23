@@ -2,8 +2,8 @@ package com.exalt.feature.post.mappers
 
 import android.content.res.Resources
 import com.exalt.core.data.extensions.getLocale
-import com.exalt.domain.home.models.CommentModel
-import com.exalt.domain.home.models.DomainModelFactory
+import com.exalt.core.domain.home.models.CommentModel
+import com.exalt.core.domain.home.models.DomainModelFactory
 import com.exalt.feature.post.PostFeatureVOsFactory.getDefaultCommentVO
 import io.mockk.MockKAnnotations
 import io.mockk.every

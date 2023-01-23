@@ -3,9 +3,9 @@ package com.exalt.core.data.di
 import com.exalt.core.data.repositories.CommentRepositoryImpl
 import com.exalt.core.data.repositories.OwnerRepositoryImpl
 import com.exalt.core.data.repositories.PostRepositoryImpl
-import com.exalt.domain.home.repositories.CommentRepository
-import com.exalt.domain.home.repositories.OwnerRepository
-import com.exalt.domain.home.repositories.PostRepository
+import com.exalt.core.domain.home.repositories.CommentRepository
+import com.exalt.core.domain.home.repositories.OwnerRepository
+import com.exalt.core.domain.home.repositories.PostRepository
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

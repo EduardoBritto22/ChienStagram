@@ -10,7 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.exalt.domain.home.models.DomainModelFactory
+import com.exalt.core.domain.home.models.DomainModelFactory
 import com.exalt.feature.user.enums.GenderConfig
 import com.exalt.feature.user.viewobjects.UserVO
 

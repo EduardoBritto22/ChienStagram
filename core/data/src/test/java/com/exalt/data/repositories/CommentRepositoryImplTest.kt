@@ -5,7 +5,7 @@ import com.exalt.api.services.RemoteService
 import com.exalt.data.ModelDataFactory.getCommentDTO
 import com.exalt.core.data.mappers.CommentMapper
 import com.exalt.core.data.repositories.CommentRepositoryImpl
-import com.exalt.domain.home.models.DomainModelFactory.getDefaultCommentModel
+import com.exalt.core.domain.home.models.DomainModelFactory.getDefaultCommentModel
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest

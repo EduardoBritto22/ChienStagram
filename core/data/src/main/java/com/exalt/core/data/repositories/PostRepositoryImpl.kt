@@ -4,9 +4,9 @@ import com.exalt.api.services.RemoteService
 import com.exalt.core.data.exceptions.PostNotFoundException
 import com.exalt.core.data.mappers.PostMapper
 import com.exalt.core.data.mappers.PostPreviewMapper
-import com.exalt.domain.home.models.PostModel
-import com.exalt.domain.home.models.PostPreviewModel
-import com.exalt.domain.home.repositories.PostRepository
+import com.exalt.core.domain.home.models.PostModel
+import com.exalt.core.domain.home.models.PostPreviewModel
+import com.exalt.core.domain.home.repositories.PostRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 

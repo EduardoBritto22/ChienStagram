@@ -2,7 +2,7 @@ package com.exalt.core.data.mappers
 
 import com.exalt.api.models.PostDTO
 import com.exalt.core.data.extensions.convertToDateTime
-import com.exalt.domain.home.models.PostModel
+import com.exalt.core.domain.home.models.PostModel
 import javax.inject.Inject
 
 class PostMapper @Inject constructor(

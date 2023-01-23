@@ -5,7 +5,7 @@ import com.exalt.data.ModelDataFactory.getOwnerDTO
 import com.exalt.core.data.exceptions.OwnerNotFoundException
 import com.exalt.core.data.mappers.OwnerMapper
 import com.exalt.core.data.repositories.OwnerRepositoryImpl
-import com.exalt.domain.home.models.DomainModelFactory.getDefaultOwnerModel
+import com.exalt.core.domain.home.models.DomainModelFactory.getDefaultOwnerModel
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest

@@ -1,27 +1,27 @@
 package com.exalt.data
 
 import com.exalt.api.models.*
-import com.exalt.domain.home.models.DomainModelFactory
-import com.exalt.domain.home.models.DomainModelFactory.COMMENT_ID
-import com.exalt.domain.home.models.DomainModelFactory.COMMENT_MESSAGE
-import com.exalt.domain.home.models.DomainModelFactory.COMMENT_PUBLISH_DATE
-import com.exalt.domain.home.models.DomainModelFactory.OWNER_BIRTHDATE_RAW
-import com.exalt.domain.home.models.DomainModelFactory.OWNER_CITY
-import com.exalt.domain.home.models.DomainModelFactory.OWNER_COUNTRY
-import com.exalt.domain.home.models.DomainModelFactory.OWNER_EMAIL
-import com.exalt.domain.home.models.DomainModelFactory.OWNER_FIRST_NAME
-import com.exalt.domain.home.models.DomainModelFactory.OWNER_GENDER_MALE
-import com.exalt.domain.home.models.DomainModelFactory.OWNER_ID
-import com.exalt.domain.home.models.DomainModelFactory.OWNER_LAST_NAME
-import com.exalt.domain.home.models.DomainModelFactory.OWNER_PHONE
-import com.exalt.domain.home.models.DomainModelFactory.OWNER_PICTURE_URL
-import com.exalt.domain.home.models.DomainModelFactory.OWNER_REGISTER_DATE
-import com.exalt.domain.home.models.DomainModelFactory.OWNER_STATE
-import com.exalt.domain.home.models.DomainModelFactory.OWNER_STREET
-import com.exalt.domain.home.models.DomainModelFactory.OWNER_TITLE
-import com.exalt.domain.home.models.DomainModelFactory.POST_ID
-import com.exalt.domain.home.models.DomainModelFactory.POST_LIKES
-import com.exalt.domain.home.models.DomainModelFactory.POST_LINK_URL
+import com.exalt.core.domain.home.models.DomainModelFactory
+import com.exalt.core.domain.home.models.DomainModelFactory.COMMENT_ID
+import com.exalt.core.domain.home.models.DomainModelFactory.COMMENT_MESSAGE
+import com.exalt.core.domain.home.models.DomainModelFactory.COMMENT_PUBLISH_DATE
+import com.exalt.core.domain.home.models.DomainModelFactory.OWNER_BIRTHDATE_RAW
+import com.exalt.core.domain.home.models.DomainModelFactory.OWNER_CITY
+import com.exalt.core.domain.home.models.DomainModelFactory.OWNER_COUNTRY
+import com.exalt.core.domain.home.models.DomainModelFactory.OWNER_EMAIL
+import com.exalt.core.domain.home.models.DomainModelFactory.OWNER_FIRST_NAME
+import com.exalt.core.domain.home.models.DomainModelFactory.OWNER_GENDER_MALE
+import com.exalt.core.domain.home.models.DomainModelFactory.OWNER_ID
+import com.exalt.core.domain.home.models.DomainModelFactory.OWNER_LAST_NAME
+import com.exalt.core.domain.home.models.DomainModelFactory.OWNER_PHONE
+import com.exalt.core.domain.home.models.DomainModelFactory.OWNER_PICTURE_URL
+import com.exalt.core.domain.home.models.DomainModelFactory.OWNER_REGISTER_DATE
+import com.exalt.core.domain.home.models.DomainModelFactory.OWNER_STATE
+import com.exalt.core.domain.home.models.DomainModelFactory.OWNER_STREET
+import com.exalt.core.domain.home.models.DomainModelFactory.OWNER_TITLE
+import com.exalt.core.domain.home.models.DomainModelFactory.POST_ID
+import com.exalt.core.domain.home.models.DomainModelFactory.POST_LIKES
+import com.exalt.core.domain.home.models.DomainModelFactory.POST_LINK_URL
 
 object ModelDataFactory {
     fun getPostPreviewDTO(id: String = POST_ID) = PostPreviewDTO(

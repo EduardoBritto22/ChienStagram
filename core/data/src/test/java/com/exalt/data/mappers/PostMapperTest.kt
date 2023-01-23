@@ -5,8 +5,8 @@ import com.exalt.data.ModelDataFactory.getPostDTO
 import com.exalt.core.data.extensions.getLocale
 import com.exalt.core.data.mappers.OwnerPreviewMapper
 import com.exalt.core.data.mappers.PostMapper
-import com.exalt.domain.home.models.DomainModelFactory.getDefaultOwnerPreviewModel
-import com.exalt.domain.home.models.DomainModelFactory.getDefaultPostModel
+import com.exalt.core.domain.home.models.DomainModelFactory.getDefaultOwnerPreviewModel
+import com.exalt.core.domain.home.models.DomainModelFactory.getDefaultPostModel
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic

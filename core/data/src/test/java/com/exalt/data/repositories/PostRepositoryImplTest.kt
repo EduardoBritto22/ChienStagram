@@ -8,8 +8,8 @@ import com.exalt.core.data.exceptions.PostNotFoundException
 import com.exalt.core.data.mappers.PostMapper
 import com.exalt.core.data.mappers.PostPreviewMapper
 import com.exalt.core.data.repositories.PostRepositoryImpl
-import com.exalt.domain.home.models.DomainModelFactory.getDefaultPostModel
-import com.exalt.domain.home.models.DomainModelFactory.getDefaultPostPreviewModel
+import com.exalt.core.domain.home.models.DomainModelFactory.getDefaultPostModel
+import com.exalt.core.domain.home.models.DomainModelFactory.getDefaultPostPreviewModel
 import io.mockk.coEvery
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest

@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.exalt.core.ui.R
-import com.exalt.domain.home.models.DomainModelFactory
+import com.exalt.core.domain.home.models.DomainModelFactory
 import com.exalt.feature.user.enums.GenderConfig
 import com.exalt.feature.user.viewobjects.UserVO
 

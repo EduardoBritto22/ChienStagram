@@ -19,7 +19,7 @@ tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
 
 dependencies {
     implementation(project(":api"))
-    implementation(project(":domain"))
+    implementation(project(":core:domain"))
 
     // Time
     implementation("joda-time:joda-time:2.12.1")

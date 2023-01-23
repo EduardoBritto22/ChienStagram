@@ -2,7 +2,7 @@ package com.exalt.core.data.mappers
 
 import com.exalt.api.models.PostPreviewDTO
 import com.exalt.core.data.extensions.convertToDateTime
-import com.exalt.domain.home.models.PostPreviewModel
+import com.exalt.core.domain.home.models.PostPreviewModel
 import javax.inject.Inject
 
 class PostPreviewMapper @Inject constructor(

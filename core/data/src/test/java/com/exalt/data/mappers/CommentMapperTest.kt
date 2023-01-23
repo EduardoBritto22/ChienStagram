@@ -4,8 +4,8 @@ import com.exalt.api.models.CommentDTO
 import com.exalt.core.data.mappers.CommentMapper
 import com.exalt.core.data.mappers.OwnerPreviewMapper
 import com.exalt.data.ModelDataFactory.getCommentDTO
-import com.exalt.domain.home.models.DomainModelFactory.getDefaultCommentModel
-import com.exalt.domain.home.models.DomainModelFactory.getDefaultOwnerPreviewModel
+import com.exalt.core.domain.home.models.DomainModelFactory.getDefaultCommentModel
+import com.exalt.core.domain.home.models.DomainModelFactory.getDefaultOwnerPreviewModel
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic

@@ -15,9 +15,9 @@ dependencyResolutionManagement {
 rootProject.name = "ChienStagram"
 include(":app")
 include(":api")
-include(":domain")
+include(":core:domain")
 include(":core:data")
+include(":core:ui")
 include(":feature:home")
 include(":feature:post")
 include(":feature:user")
-include(":core:ui")

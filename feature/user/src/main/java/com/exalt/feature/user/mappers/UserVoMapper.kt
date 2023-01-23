@@ -1,8 +1,8 @@
 package com.exalt.feature.user.mappers
 
 import com.exalt.core.ui.extensions.formatToBirthDateString
-import com.exalt.domain.home.enums.Gender
-import com.exalt.domain.home.models.OwnerModel
+import com.exalt.core.domain.home.enums.Gender
+import com.exalt.core.domain.home.models.OwnerModel
 import com.exalt.feature.user.enums.GenderConfig
 import com.exalt.feature.user.viewobjects.UserVO
 import javax.inject.Inject

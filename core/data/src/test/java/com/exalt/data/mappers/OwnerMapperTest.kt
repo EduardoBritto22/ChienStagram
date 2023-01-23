@@ -3,8 +3,8 @@ package com.exalt.data.mappers
 import com.exalt.core.data.mappers.LocationMapper
 import com.exalt.core.data.mappers.OwnerMapper
 import com.exalt.data.ModelDataFactory.getOwnerDTO
-import com.exalt.domain.home.models.DomainModelFactory.getDefaultLocation
-import com.exalt.domain.home.models.DomainModelFactory.getDefaultOwnerModel
+import com.exalt.core.domain.home.models.DomainModelFactory.getDefaultLocation
+import com.exalt.core.domain.home.models.DomainModelFactory.getDefaultOwnerModel
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.mockkStatic
