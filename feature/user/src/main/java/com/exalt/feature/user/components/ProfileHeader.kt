@@ -36,7 +36,8 @@ fun ProfileHeader(userVO: UserVO, modifier: Modifier = Modifier) {
                 .build(),
             contentDescription = "profile background picture",
             contentScale = ContentScale.FillBounds,
-            placeholder = painterResource(R.drawable.placeholder)
+            placeholder = painterResource(R.drawable.placeholder),
+            modifier = Modifier.fillMaxWidth()
         )
 
         UserPicture(

@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -54,7 +55,8 @@ class PostFragment : Fragment() {
     }
 
     private fun setUpToolbar() {
-        binding.postToolbar.setNavigationIcon(com.exalt.core.ui.R.drawable.ic_back)
+        val drawable = ContextCompat.getDrawable(requireContext(), com.google.android.material.R.drawable.abc_ic_ab_back_material)
+        binding.postToolbar.navigationIcon = drawable
         binding.postToolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }

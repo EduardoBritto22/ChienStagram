@@ -1,31 +1,37 @@
 package com.exalt.feature.user.viewmodels
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.liveData
+import androidx.lifecycle.viewModelScope
 import com.exalt.core.domain.home.usecases.GetOwnerUseCase
 import com.exalt.feature.user.mappers.UserVoMapper
-import com.exalt.feature.user.viewobjects.UserVO
+import com.exalt.feature.user.states.UserUiState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class UserViewModel @Inject constructor(
     private val getOwnerUseCase: GetOwnerUseCase,
     private val userVoMapper: UserVoMapper,
+    savedState: SavedStateHandle
 ) : ViewModel() {
 
-    private val _isLoading = MutableLiveData(true)
-    val isLoading: LiveData<Boolean> = _isLoading
+    var userId = savedState.get<String>("userId").orEmpty()
 
-    var userId = ""
+    private val _uiState: MutableStateFlow<UserUiState> = MutableStateFlow(
+        UserUiState()
+    )
 
-    val user: LiveData<UserVO?> = liveData {
-        emit(
-            userVoMapper.toUserVO(getOwnerUseCase.invoke(userId))
-        )
-        _isLoading.value = false
+    val uiState get() = _uiState.asStateFlow()
+
+    init {
+        viewModelScope.launch {
+            _uiState.value = _uiState.value.copy(
+                user =  userVoMapper.toUserVO(getOwnerUseCase.invoke(userId))
+            )
+        }
     }
-
 }

@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="post_name">Post</string>
+    <string name="module_name">Profile</string>
 </resources>
