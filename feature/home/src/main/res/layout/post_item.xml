@@ -55,6 +55,12 @@
 
     </LinearLayout>
 
+<LinearLayout
+    android:id="@+id/post_info"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:layout_constraintTop_toBottomOf="@+id/post_user_info">
 
     <ImageView
         android:id="@+id/post_image"
@@ -68,7 +74,7 @@
 
     <TextView
         android:id="@+id/post_description"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         android:textSize="12sp"
@@ -76,4 +82,5 @@
         app:layout_constraintStart_toEndOf="@+id/post_image"
         app:layout_constraintTop_toTopOf="@+id/post_image"
         tools:text="Dog in a forest at sunset dog in forest with sun. Dog in a forest at sunset dog in forest with sun r" />
+</LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

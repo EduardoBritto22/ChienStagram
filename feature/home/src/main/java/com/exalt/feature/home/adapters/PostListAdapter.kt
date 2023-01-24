@@ -19,23 +19,24 @@ class PostListAdapter : ListAdapter<PostPreviewVO, PostListAdapter.PostViewHolde
         fun bind(post: PostPreviewVO) {
             itemView.findViewById<ImageView>(R.id.user_picture)?.loadUserImage(post.ownerPictureUri)
 
+
+            itemView.findViewById<TextView>(R.id.user_name).text = post.ownerName
+            itemView.findViewById<TextView>(R.id.post_date).text = post.publishDate
             itemView.findViewById<LinearLayout>(R.id.post_user_info)?.let {
                 it.setOnClickListener {
                     onUserClick?.invoke(post.ownerId)
                 }
             }
 
-            itemView.findViewById<TextView>(R.id.user_name).text = post.ownerName
-            itemView.findViewById<TextView>(R.id.post_date).text = post.publishDate
-            itemView.findViewById<ImageView>(R.id.post_image).let {
-
-                it.loadImage(post.imageUri)
-
+            itemView.findViewById<ImageView>(R.id.post_image)?.loadImage(post.imageUri)
+            itemView.findViewById<TextView>(R.id.post_description).text = post.text
+            itemView.findViewById<LinearLayout>(R.id.post_info)?.let {
                 it.setOnClickListener {
                     onPostClick?.invoke(post.id)
                 }
             }
-            itemView.findViewById<TextView>(R.id.post_description).text = post.text
+
+
         }
     }
 
