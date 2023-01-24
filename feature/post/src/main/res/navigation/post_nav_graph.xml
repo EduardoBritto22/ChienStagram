@@ -9,6 +9,12 @@
         android:id="@+id/postFragment"
         android:name="com.exalt.feature.post.fragments.PostFragment"
         android:label="PostFragment"
-        tools:layout="@layout/fragment_post"/>
+        tools:layout="@layout/fragment_post" >
+
+        <deepLink
+            android:id="@+id/deepLinkPost"
+            app:uri="android-app://com.eXalt.chienstagram/postFragment/{postId}" />
+    </fragment>
+
 
 </navigation>

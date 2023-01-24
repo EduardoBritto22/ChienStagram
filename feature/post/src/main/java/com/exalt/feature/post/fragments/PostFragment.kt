@@ -4,8 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.exalt.core.ui.extensions.handleVisibility
 import com.exalt.core.ui.extensions.loadImage
@@ -14,6 +17,7 @@ import com.exalt.feature.post.adapters.CommentListAdapter
 import com.exalt.feature.post.adapters.TagListAdapter
 import com.exalt.feature.post.databinding.FragmentPostBinding
 import com.exalt.feature.post.viewmodels.PostViewModel
+import com.exalt.feature.post.viewobjects.PostVO
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -30,20 +34,17 @@ class PostFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentPostBinding.inflate(inflater, container, false)
-
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.postId = "60d21b8667d0d8992e610d3f"
+        viewModel.postId = arguments?.getString("postId").orEmpty() //"60d21b8667d0d8992e610d3f"
 
         setUpToolbar()
-        binding.commentList.apply {
-            layoutManager = LinearLayoutManager(context)
-            adapter = CommentListAdapter()
-        }
+        setUpCommentList()
+
         initObservers()
     }
 
@@ -55,7 +56,18 @@ class PostFragment : Fragment() {
     private fun setUpToolbar() {
         binding.postToolbar.setNavigationIcon(com.exalt.core.ui.R.drawable.ic_back)
         binding.postToolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
+    }
 
+    private fun setUpCommentList() {
+        binding.commentList.apply {
+            layoutManager = LinearLayoutManager(context)
+            adapter = CommentListAdapter().apply {
+                onUserClick = { userId ->
+                    navigateToUserFragment(userId)
+                }
+            }
         }
     }
 
@@ -67,22 +79,7 @@ class PostFragment : Fragment() {
 
         viewModel.post.observe(viewLifecycleOwner) {
             it?.let { post ->
-
-                binding.postText.text = post.text
-                binding.postPicture.loadImage(post.imageUri)
-
-                binding.postUserInfo.postUserName.text = post.ownerName
-                binding.postUserInfo.postDate.text = post.publishDate
-
-                binding.postUserInfo.postUserPicture.loadUserImage(post.ownerPictureUri)
-
-                binding.postInformation.postInformationLikes.postInfoNumber.text = post.likes.toString()
-                binding.postInformation.postInformationTags.postInfoNumber.text = post.tags.size.toString()
-                binding.postInformation.postInformationComments.postInfoNumber.text = "0"
-
-                binding.postInformation.tagList.apply {
-                    adapter = TagListAdapter(post.tags)
-                }
+                initViews(post)
             }
         }
 
@@ -91,6 +88,40 @@ class PostFragment : Fragment() {
             binding.postInformation.postInformationComments.postInfoNumber.text = comments.size.toString()
             (binding.commentList.adapter as CommentListAdapter).submitList(comments)
         }
+    }
+
+    private fun initViews(post: PostVO) {
+
+        //Post data
+        binding.postText.text = post.text
+        binding.postPicture.loadImage(post.imageUri)
+
+        //Post user data
+        binding.postUserInfo.postUserName.text = post.ownerName
+        binding.postUserInfo.postDate.text = post.publishDate
+        binding.postUserInfo.postUserPicture.loadUserImage(post.ownerPictureUri)
+        binding.postUserInfo.root.setOnClickListener {
+            navigateToUserFragment(post.ownerId)
+        }
+
+
+        //Post Information row
+        binding.postInformation.postInformationLikes.postInfoNumber.text = post.likes.toString()
+        binding.postInformation.postInformationTags.postInfoNumber.text = post.tags.size.toString()
+        binding.postInformation.postInformationComments.postInfoNumber.text = "0"
+
+        //Tag List
+        binding.postInformation.tagList.apply {
+            adapter = TagListAdapter(post.tags)
+        }
+
+    }
+
+    private fun navigateToUserFragment(userId: String) {
+        val request = NavDeepLinkRequest.Builder
+            .fromUri("android-app://com.eXalt.chienstagram/userFragment/$userId".toUri())
+            .build()
+        findNavController().navigate(request)
     }
 
 }

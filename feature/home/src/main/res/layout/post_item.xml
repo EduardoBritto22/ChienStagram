@@ -6,37 +6,55 @@
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
 
-    <ImageView
-        android:id="@+id/user_picture"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_margin="8dp"
-        android:contentDescription="@string/user_picture"
+    <LinearLayout
+        android:id="@+id/post_user_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <TextView
-        android:id="@+id/user_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="8dp"
-        android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/user_picture"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="@tools:sample/full_names" />
+        <ImageView
+            android:id="@+id/user_picture"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_margin="8dp"
+            android:contentDescription="@string/user_picture"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@tools:sample/avatars" />
 
-    <TextView
-        android:id="@+id/post_date"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="8dp"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/user_picture"
-        app:layout_constraintTop_toBottomOf="@+id/user_name"
-        tools:text="@tools:sample/date/ddmmyy" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/user_picture"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                tools:text="@tools:sample/full_names" />
+
+            <TextView
+                android:id="@+id/post_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/user_picture"
+                app:layout_constraintTop_toBottomOf="@+id/user_name"
+                tools:text="@tools:sample/date/ddmmyy" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 
     <ImageView
         android:id="@+id/post_image"
@@ -45,7 +63,7 @@
         android:layout_margin="8dp"
         android:contentDescription="@string/post_image"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/user_picture"
+        app:layout_constraintTop_toBottomOf="@+id/post_user_info"
         tools:src="@tools:sample/backgrounds/scenic"/>
 
     <TextView

@@ -7,5 +7,11 @@
     <fragment
         android:id="@+id/userFragment"
         android:name="com.exalt.feature.user.fragments.UserFragment"
-        android:label="UserFragment" />
+        android:label="UserFragment" >
+
+        <deepLink
+            android:id="@+id/deepLinkUser"
+            app:uri="android-app://com.eXalt.chienstagram/userFragment/{userId}" />
+
+    </fragment>
 </navigation>

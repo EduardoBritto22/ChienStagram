@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -16,12 +17,14 @@ import com.exalt.feature.home.viewobjects.PostPreviewVO
 class PostListAdapter : ListAdapter<PostPreviewVO, PostListAdapter.PostViewHolder>(PostDiffCallBack()) {
     inner class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(post: PostPreviewVO) {
-            itemView.findViewById<ImageView>(R.id.user_picture).let {
-                it.loadUserImage(post.ownerPictureUri)
+            itemView.findViewById<ImageView>(R.id.user_picture)?.loadUserImage(post.ownerPictureUri)
+
+            itemView.findViewById<LinearLayout>(R.id.post_user_info)?.let {
                 it.setOnClickListener {
                     onUserClick?.invoke(post.ownerId)
                 }
             }
+
             itemView.findViewById<TextView>(R.id.user_name).text = post.ownerName
             itemView.findViewById<TextView>(R.id.post_date).text = post.publishDate
             itemView.findViewById<ImageView>(R.id.post_image).let {
