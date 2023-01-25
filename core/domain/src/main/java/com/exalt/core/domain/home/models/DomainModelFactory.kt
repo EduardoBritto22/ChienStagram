@@ -14,7 +14,7 @@ object DomainModelFactory {
     const val POST_IMAGE_URL = "POST_IMAGE_URL"
     const val POST_LINK_URL = "POST_URL"
     const val POST_PUBLISH_DATE = "2020-08-20T23:52:42.504Z"
-    const val POST_PUBLISH_DATE_FORMATTED = "20 août 2020, 23:52:42"
+    const val POST_PUBLISH_DATE_FORMATTED = "20 août 2020 à 23:52:42"
     val POST_PUBLISH_DATETIME  = DateTime("2020-08-20T23:52:42.504Z", DateTimeZone.UTC)
     const val POST_LIKES = 100
 
