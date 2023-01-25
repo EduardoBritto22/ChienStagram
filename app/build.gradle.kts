@@ -32,14 +32,25 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        dataBinding = true
+    }
 }
 
 dependencies {
-    implementation(project(":home"))
+    //Modules
+    implementation(project(":feature:home"))
+    implementation(project(":feature:post"))
+    implementation(project(":feature:user"))
 
     // Hilt
     implementation("com.google.dagger:hilt-android:${Versions.HILT}")
     kapt("com.google.dagger:hilt-android-compiler:${Versions.HILT}")
+
+    // Navigation
+    api("androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}")
+    api("androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}")
+    api("androidx.navigation:navigation-dynamic-features-fragment:${Versions.NAVIGATION}")
 
     // UI
     implementation("androidx.core:core-ktx:${Versions.ANDROID_CORE}")

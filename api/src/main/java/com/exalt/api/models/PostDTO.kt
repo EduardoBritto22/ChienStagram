@@ -5,7 +5,7 @@ data class PostDTO(
     val text: String,
     val image: String,
     val likes: Int,
-    val link: String,
+    val link: String?,
     val tags: List<String>,
     val publishDate: String,
     val owner: UserPreviewDTO

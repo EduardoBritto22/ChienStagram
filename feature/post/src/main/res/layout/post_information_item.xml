@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable name="iconSrc" type="android.graphics.drawable.Drawable"/>
+    </data>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/layout_post_info_bg"
+    android:padding="4dp"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/post_info_icon"
+        android:layout_width="22dp"
+        android:layout_height="22dp"
+        android:layout_marginEnd="5dp"
+        android:contentDescription="@string/user_picture"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@{iconSrc}"
+        tools:src="@drawable/ic_like" />
+
+    <TextView
+        android:id="@+id/post_info_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        tools:text="15" />
+
+</LinearLayout>
+</layout>

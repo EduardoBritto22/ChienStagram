@@ -1,9 +1,8 @@
 package com.exalt.data.extensions
 
-import com.exalt.domain.home.enums.Gender
 import org.joda.time.*
 
-fun String.formatToBirthdayDate(): LocalDate? {
+fun String.convertToLocalDate(): LocalDate? {
     return try {
         DateTime.parse(this).toLocalDate()
     } catch (e: Exception) {
@@ -11,7 +10,7 @@ fun String.formatToBirthdayDate(): LocalDate? {
     }
 }
 
-fun String.formatToPostDate(): DateTime {
+fun String.convertToDateTime(): DateTime {
     return try {
         DateTime.parse(this)
     } catch (e: Exception) {
@@ -20,7 +19,7 @@ fun String.formatToPostDate(): DateTime {
 }
 
 
-fun String.formatToDuration(): Duration {
+fun String.convertToDuration(): Duration {
     return try {
         val dateTime = DateTime.parse(this)// We use DateTime first to avoid some exceptions in parsing UTC format
             .toLocalDateTime()
@@ -32,12 +31,4 @@ fun String.formatToDuration(): Duration {
     } catch (e: Exception) {
         Duration(0)
     }
-}
-
-
-fun String?.asGender() = when (this) {
-    null -> Gender.OTHER
-    else -> Gender.values()
-        .firstOrNull { gender -> gender.text == this }
-        ?: Gender.OTHER
 }

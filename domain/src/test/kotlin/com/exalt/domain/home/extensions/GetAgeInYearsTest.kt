@@ -2,8 +2,7 @@ package com.exalt.domain.home.extensions
 
 import io.mockk.every
 import io.mockk.mockkStatic
-import junit.framework.TestCase
-import kotlinx.coroutines.test.runTest
+import junit.framework.TestCase.assertEquals
 import org.joda.time.DateTimeZone
 import org.joda.time.LocalDate
 import org.joda.time.LocalDateTime
@@ -20,8 +19,7 @@ class GetAgeInYearsTest {
     }
 
     @Test
-    fun `Given an age equals to 18, When call the the Get function, Then return 18` () =
-        runTest {
+    fun `Given an age equals to 18, When call the the Get function, Then return 18` (){
             //Given
             val expectedAgeInYears = 18
             val birthDayDate = LocalDate.now(DateTimeZone.UTC).minusYears(expectedAgeInYears)
@@ -30,12 +28,11 @@ class GetAgeInYearsTest {
             val actualAgeInYears = birthDayDate.getAgeInYears()
 
             //Then
-            TestCase.assertEquals(expectedAgeInYears, actualAgeInYears)
+            assertEquals(expectedAgeInYears, actualAgeInYears)
         }
 
     @Test
-    fun `Given a birthday date null, When call the format function, Then return 0` () =
-        runTest {
+    fun `Given a birthday date null, When call the format function, Then return 0` () {
 
             //Given
             val birthDayDate: LocalDate? = null
@@ -45,11 +42,10 @@ class GetAgeInYearsTest {
             val actualAgeInYears = birthDayDate.getAgeInYears()
 
             //Then
-            TestCase.assertEquals(expectedAgeInYears, actualAgeInYears)
+            assertEquals(expectedAgeInYears, actualAgeInYears)
         }
     @Test
-    fun `Given a birthday date in the future, When call the format function, Then return 0` () =
-        runTest {
+    fun `Given a birthday date in the future, When call the format function, Then return 0` () {
 
             //Given
             val birthDayDate = LocalDate.now(DateTimeZone.UTC).plusYears(5)
@@ -59,6 +55,6 @@ class GetAgeInYearsTest {
             val actualAgeInYears = birthDayDate.getAgeInYears()
 
             //Then
-            TestCase.assertEquals(expectedAgeInYears, actualAgeInYears)
+            assertEquals(expectedAgeInYears, actualAgeInYears)
         }
 }
