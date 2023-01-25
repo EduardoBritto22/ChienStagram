@@ -14,7 +14,7 @@ class FormatToLocalMediumDateTimeTest {
 
         //Given
         val rawDateTime = DateTime("2020-08-20T23:52:42.504Z", DateTimeZone.UTC)
-        val expectedDateString = "20 août 2020, 23:52:42"
+        val expectedDateString = "20 août 2020 à 23:52:42"
 
         //When
         val actualFormattedDate = rawDateTime.formatToLocalMediumDateTimeString(Locale.FRANCE)
