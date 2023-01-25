@@ -13,7 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.exalt.core.ui.extensions.handleVisibility
 import com.exalt.core.ui.extensions.loadImage
-import com.exalt.core.ui.extensions.loadUserImage
+import com.exalt.core.ui.extensions.loadImageAndCircleCrop
 import com.exalt.feature.post.adapters.CommentListAdapter
 import com.exalt.feature.post.adapters.TagListAdapter
 import com.exalt.feature.post.databinding.FragmentPostBinding
@@ -101,7 +101,7 @@ class PostFragment : Fragment() {
         //Post user data
         binding.postUserInfo.postUserName.text = post.ownerName
         binding.postUserInfo.postDate.text = post.publishDate
-        binding.postUserInfo.postUserPicture.loadUserImage(post.ownerPictureUri)
+        binding.postUserInfo.postUserPicture.loadImageAndCircleCrop(post.ownerPictureUri)
         binding.postUserInfo.root.setOnClickListener {
             navigateToUserFragment(post.ownerId)
         }

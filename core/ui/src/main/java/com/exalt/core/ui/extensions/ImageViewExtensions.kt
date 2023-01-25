@@ -18,7 +18,7 @@ fun ImageView.loadImage(url: String){
         .into(this)
 }
 
-fun ImageView.loadUserImage(userImageUrl: String) {
+fun ImageView.loadImageAndCircleCrop(userImageUrl: String) {
 
     Glide.with(this.context)
         .load(userImageUrl)

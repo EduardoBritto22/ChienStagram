@@ -14,7 +14,7 @@ object DomainModelFactory {
     const val POST_IMAGE_URL = "POST_IMAGE_URL"
     const val POST_LINK_URL = "POST_URL"
     const val POST_PUBLISH_DATE = "2020-08-20T23:52:42.504Z"
-    const val POST_PUBLISH_DATE_FORMATTED = "20 août 2020 à 23:52:42"
+    const val POST_PUBLISH_DATE_FORMATTED = "20 août 2020, 23:52:42"
     val POST_PUBLISH_DATETIME  = DateTime("2020-08-20T23:52:42.504Z", DateTimeZone.UTC)
     const val POST_LIKES = 100
 
@@ -34,6 +34,8 @@ object DomainModelFactory {
     const val OWNER_COUNTRY = "Norway"
     const val OWNER_ADDRESS = "5225, Hansemyrveien\nVingrom Finnamasrk - FinnmAirku\nNorway"
     val OWNER_BIRTHDATE = DateTime.parse("1958-08-20T00:00:00.000").toLocalDate()
+    const val OWNER_BIRTHDATE_FORMATTED = "20/08/1958"
+    const val OWNER_PROFILE_BACKGROUND = "https://as1.ftcdn.net/v2/jpg/04/14/17/88/1000_F_414178875_7GqEVTasELylv9Y7vNxPjDaMCJlAToMR.jpg"
 
 
     const val COMMENT_ID = "COMMENT_ID"
@@ -72,7 +74,8 @@ object DomainModelFactory {
     )
 
     fun getDefaultOwnerModel(
-        id: String = OWNER_ID
+        id: String = OWNER_ID,
+        gender: Gender = Gender.MALE
     ) = OwnerModel(
         id = id,
         name = "$OWNER_FIRST_NAME $OWNER_LAST_NAME",
@@ -80,7 +83,7 @@ object DomainModelFactory {
         address = getDefaultLocation(),
         dateOfBirth = OWNER_BIRTHDATE,
         email = OWNER_EMAIL,
-        gender = Gender.MALE,
+        gender = gender,
         phone = OWNER_PHONE
     )
     fun getMinorOwnerModel(

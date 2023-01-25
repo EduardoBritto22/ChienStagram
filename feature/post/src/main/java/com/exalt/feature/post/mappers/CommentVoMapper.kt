@@ -10,9 +10,9 @@ class CommentVoMapper @Inject constructor(
     private val resources: Resources
 ) {
     fun toListCommentVO(commentModels: List<CommentModel>) =
-        commentModels.map { toPostVO(it) }
+        commentModels.map { toCommentVO(it) }
 
-    private fun toPostVO(commentModel: CommentModel): CommentVO{
+    private fun toCommentVO(commentModel: CommentModel): CommentVO{
 
         return CommentVO(
             id = commentModel.id,

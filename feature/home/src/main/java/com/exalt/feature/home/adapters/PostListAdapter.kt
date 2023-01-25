@@ -11,13 +11,13 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.eXalt.feature.home.R
 import com.exalt.core.ui.extensions.loadImage
-import com.exalt.core.ui.extensions.loadUserImage
+import com.exalt.core.ui.extensions.loadImageAndCircleCrop
 import com.exalt.feature.home.viewobjects.PostPreviewVO
 
 class PostListAdapter : ListAdapter<PostPreviewVO, PostListAdapter.PostViewHolder>(PostDiffCallBack()) {
     inner class PostViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(post: PostPreviewVO) {
-            itemView.findViewById<ImageView>(R.id.user_picture)?.loadUserImage(post.ownerPictureUri)
+            itemView.findViewById<ImageView>(R.id.user_picture)?.loadImageAndCircleCrop(post.ownerPictureUri)
 
 
             itemView.findViewById<TextView>(R.id.user_name).text = post.ownerName

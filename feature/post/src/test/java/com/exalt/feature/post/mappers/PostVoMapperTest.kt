@@ -34,7 +34,7 @@ class PostVoMapperTest {
 
     }
     @Test
-    fun `Given list of Post Model, when mapper is called, Then returns list of PostVO`() {
+    fun `Given a Post Model, when mapper is called, Then returns a PostVO`() {
         // Given
         val randomUuid = UUID.randomUUID().toString()
 
@@ -48,6 +48,19 @@ class PostVoMapperTest {
 
         // Then
         Assert.assertEquals(expectedPostVO, actualPostVO)
+    }
+
+    @Test
+    fun `Given a null Post Model, when mapper is called, Then returns null`() {
+        // Given
+        val postModel = null
+
+        // When
+        val actualPostVO = postVoMapper.toPostVO(postModel)
+
+
+        // Then
+        Assert.assertNull(actualPostVO)
     }
 
 }

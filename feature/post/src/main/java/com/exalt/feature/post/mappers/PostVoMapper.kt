@@ -11,15 +11,12 @@ class PostVoMapper @Inject constructor(
     private val resources: Resources
 ) {
 
-    fun toPostVO(postModel: PostModel?): PostVO? {
-
+    fun toPostVO(postModel: PostModel?): PostVO? =
         postModel?.let {
-            val locale = resources.getLocale()
-
             return PostVO(
                 id = postModel.id,
                 text = postModel.text,
-                publishDate = postModel.publishDate.formatToLocalMediumDateTimeString(locale),
+                publishDate = postModel.publishDate.formatToLocalMediumDateTimeString(resources.getLocale()),
                 ownerId = postModel.owner.id,
                 ownerName = postModel.owner.name,
                 ownerPictureUri = postModel.owner.pictureUrl,
@@ -28,7 +25,4 @@ class PostVoMapper @Inject constructor(
                 likes = postModel.likes
             )
         }
-
-        return null
-    }
 }

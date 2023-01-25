@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.exalt.core.ui.extensions.loadUserImage
+import com.exalt.core.ui.extensions.loadImageAndCircleCrop
 import com.exalt.feature.post.R
 import com.exalt.feature.post.viewobjects.CommentVO
 
@@ -17,7 +17,7 @@ class CommentListAdapter : ListAdapter<CommentVO, CommentListAdapter.CommentView
         fun bind(comment: CommentVO) {
             itemView.findViewById<ImageView>(R.id.comment_user_picture).let {
 
-                it.loadUserImage(comment.ownerPictureUri)
+                it.loadImageAndCircleCrop(comment.ownerPictureUri)
 
                 it.setOnClickListener {
                     onUserClick?.invoke(comment.ownerId)
