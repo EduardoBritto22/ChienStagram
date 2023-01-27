@@ -12,7 +12,7 @@ class UserVoMapper @Inject constructor() {
 
     fun toUserVO(ownerModel: OwnerModel?): UserVO? =
         ownerModel?.let {
-            return UserVO(
+            UserVO(
                 id = ownerModel.id,
                 name = ownerModel.name,
                 email = ownerModel.email,
@@ -27,11 +27,8 @@ class UserVoMapper @Inject constructor() {
 
     private fun getGenderIcon(gender: Gender): GenderConfig =
         when (gender) {
-            Gender.OTHER -> GenderConfig.OTHER
             Gender.MALE -> GenderConfig.MALE
             Gender.FEMALE -> GenderConfig.FEMALE
             else -> GenderConfig.OTHER
         }
-
-
 }

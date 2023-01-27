@@ -36,7 +36,8 @@ fun UserScreen(
 @Composable
 fun UserScreen(
     uiState: UserUiState,
-    onBackClick: () -> Unit) {
+    onBackClick: () -> Unit
+) {
     Scaffold(
         topBar = {
             TopAppBar(
@@ -47,7 +48,11 @@ fun UserScreen(
                     }
                 },
                 colors = TopAppBarDefaults
-                    .mediumTopAppBarColors(containerColor = MaterialTheme.colorScheme.primary)
+                    .mediumTopAppBarColors(
+                        containerColor = MaterialTheme.colorScheme.primary,
+                        navigationIconContentColor = MaterialTheme.colorScheme.onPrimary,
+                        titleContentColor = MaterialTheme.colorScheme.onPrimary
+                    )
             )
         }
     ) {

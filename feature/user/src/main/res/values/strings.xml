@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="module_name">Profile</string>
+    <string name="contact_info_email">Email</string>
+    <string name="contact_info_phone">Phone</string>
+    <string name="contact_info_address">Address</string>
+    <string name="contact_information_title">CONTACT INFORMATION</string>
 </resources>

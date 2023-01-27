@@ -6,23 +6,25 @@ import androidx.compose.material3.Divider
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.exalt.core.domain.home.models.DomainModelFactory
+import com.exalt.feature.user.R
 import com.exalt.feature.user.enums.GenderConfig
 import com.exalt.feature.user.viewobjects.UserVO
 import com.google.accompanist.themeadapter.material3.Mdc3Theme
 
 @Composable
 fun ContactInformation(user: UserVO, modifier: Modifier = Modifier) {
-    Column(modifier = modifier, verticalArrangement = Arrangement.spacedBy(15.dp)) {
+    Column(verticalArrangement = Arrangement.spacedBy(15.dp), modifier = modifier) {
 
-        Text(text = "CONTACT INFORMATION", fontSize = 12.sp)
+        Text(text = stringResource(R.string.contact_information_title), fontSize = 12.sp)
         Divider()
-        ContactInformationItem(title = "Email", information = user.email)
-        ContactInformationItem(title = "Phone", information = user.phone)
-        ContactInformationItem(title = "Address", information = user.address)
+        ContactInformationItem(title = stringResource(R.string.contact_info_email), information = user.email)
+        ContactInformationItem(title = stringResource(R.string.contact_info_phone), information = user.phone)
+        ContactInformationItem(title = stringResource(R.string.contact_info_address), information = user.address)
 
     }
 }

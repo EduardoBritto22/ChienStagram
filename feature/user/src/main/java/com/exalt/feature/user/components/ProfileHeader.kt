@@ -35,7 +35,7 @@ fun ProfileHeader(userVO: UserVO, modifier: Modifier = Modifier) {
                 .crossfade(true)
                 .build(),
             contentDescription = "profile background picture",
-            contentScale = ContentScale.FillBounds,
+            contentScale = ContentScale.Crop,
             placeholder = painterResource(R.drawable.placeholder),
             modifier = Modifier.fillMaxWidth()
         )

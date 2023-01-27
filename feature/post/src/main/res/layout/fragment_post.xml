@@ -10,9 +10,9 @@
         android:id="@+id/postToolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        android:theme="@style/Theme.ChienStagram"
+        android:theme="@style/ChienStagramToolbar"
         app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_back"
         app:title="@string/post_name" />
 
     <ScrollView

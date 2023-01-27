@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -20,6 +19,7 @@ import com.exalt.feature.post.databinding.FragmentPostBinding
 import com.exalt.feature.post.viewmodels.PostViewModel
 import com.exalt.feature.post.viewobjects.PostVO
 import dagger.hilt.android.AndroidEntryPoint
+
 
 @AndroidEntryPoint
 class PostFragment : Fragment() {
@@ -41,7 +41,7 @@ class PostFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.postId = arguments?.getString("postId").orEmpty() //"60d21b8667d0d8992e610d3f"
+        viewModel.postId = arguments?.getString("postId").orEmpty()
 
         setUpToolbar()
         setUpCommentList()
@@ -55,8 +55,6 @@ class PostFragment : Fragment() {
     }
 
     private fun setUpToolbar() {
-        val drawable = ContextCompat.getDrawable(requireContext(), com.google.android.material.R.drawable.abc_ic_ab_back_material)
-        binding.postToolbar.navigationIcon = drawable
         binding.postToolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
