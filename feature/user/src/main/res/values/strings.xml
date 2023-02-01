@@ -5,4 +5,5 @@
     <string name="contact_info_phone">Phone</string>
     <string name="contact_info_address">Address</string>
     <string name="contact_information_title">CONTACT INFORMATION</string>
+    <string name="image_description_gender_symbol">gender symbol</string>
 </resources>

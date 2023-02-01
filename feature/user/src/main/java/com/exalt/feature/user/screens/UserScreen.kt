@@ -9,9 +9,9 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.exalt.core.domain.home.models.DomainModelFactory
 import com.exalt.feature.user.R
 import com.exalt.feature.user.components.ContactInformation
@@ -67,7 +67,9 @@ fun UserScreen(
 
                     ProfileHeader(userVO)
 
-                    ContactInformation(user = userVO, modifier = Modifier.padding(20.dp))
+                    ContactInformation(user = userVO, modifier = Modifier.padding(dimensionResource(
+                        id = com.exalt.core.ui.R.dimen.groups_padding
+                    )))
                 }
 
 

@@ -13,7 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -37,10 +39,16 @@ fun UserPicture(
                 .data(user.pictureUrl)
                 .crossfade(true)
                 .build(),
-            contentDescription = "User picture",
+            contentDescription = stringResource(id = R.string.user_picture),
             Modifier
                 .size(imageSize)
-                .border(BorderStroke(1.dp, user.genderConfig.color), CircleShape)
+                .border(
+                    BorderStroke(
+                        dimensionResource(id = R.dimen.image_border_stroke),
+                        user.genderConfig.color
+                    ),
+                    CircleShape
+                )
                 .clip(CircleShape),
             contentScale = ContentScale.FillBounds,
             placeholder = painterResource(R.drawable.placeholder)
@@ -48,8 +56,9 @@ fun UserPicture(
 
         Icon(
             painterResource(user.genderConfig.icon),
-            null,
-            modifier = Modifier.align(Alignment.BottomEnd)
+            contentDescription =  stringResource(com.exalt.feature.user.R.string.image_description_gender_symbol),
+            modifier = Modifier
+                .align(Alignment.BottomEnd)
                 .offset(x = 8.dp)
         )
     }
