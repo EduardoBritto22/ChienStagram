@@ -24,7 +24,6 @@ fun ProfileHeader(userVO: UserVO, modifier: Modifier = Modifier) {
     val imageSize = 100.dp
     Box(
         modifier
-            .height(imageSize)
             .fillMaxWidth()
     ) {
 
@@ -36,28 +35,35 @@ fun ProfileHeader(userVO: UserVO, modifier: Modifier = Modifier) {
             contentDescription = "profile background picture",
             contentScale = ContentScale.Crop,
             placeholder = painterResource(R.drawable.placeholder),
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(imageSize)
         )
 
-        UserPicture(
-            userVO,
-            Modifier
-                .offset(y = imageSize / 2) // Half of the height
-                .align(Alignment.BottomCenter)
-        )
+
+        Column(
+            horizontalAlignment = Alignment.CenterHorizontally,
+            modifier = Modifier.padding(top = imageSize / 2)
+                .fillMaxWidth()
+        ) {
+            UserPicture(
+                userVO,
+                Modifier
+                    .align(Alignment.CenterHorizontally)
+            )
+
+            Text(
+                text = userVO.name,
+                style = MaterialTheme.typography.titleMedium
+            )
+
+            Text(
+                text = userVO.dateOfBirth,
+                style = MaterialTheme.typography.bodyMedium
+            )
+        }
     }
 
-    Spacer(Modifier.height(imageSize / 2))
-
-    Text(
-        text = userVO.name,
-        style = MaterialTheme.typography.titleMedium
-    )
-
-    Text(
-        text = userVO.dateOfBirth,
-        style = MaterialTheme.typography.bodyMedium
-    )
 }
 
 
