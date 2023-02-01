@@ -75,6 +75,8 @@ class PostFragment : Fragment() {
 
         viewModel.isLoading.observe(viewLifecycleOwner) { isVisible ->
             binding.progressPost.handleVisibility(isVisible)
+            binding.postInformation.root.handleVisibility(!isVisible)
+
         }
 
         viewModel.post.observe(viewLifecycleOwner) {
