@@ -15,10 +15,13 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.exalt.core.domain.home.models.DomainModelFactory
 import com.exalt.feature.user.R
 import com.exalt.feature.user.components.ContactInformation
+import com.exalt.feature.user.components.ErrorInfo
+import com.exalt.feature.user.components.LoadingInfo
 import com.exalt.feature.user.components.ProfileHeader
 import com.exalt.feature.user.enums.GenderConfig
-import com.exalt.feature.user.states.UserUiState
 import com.exalt.feature.user.viewmodels.UserViewModel
+import com.exalt.feature.user.viewobjects.UserUiState
+import com.exalt.feature.user.viewobjects.UserUiState.*
 import com.exalt.feature.user.viewobjects.UserVO
 import com.google.accompanist.themeadapter.material3.Mdc3Theme
 
@@ -56,25 +59,40 @@ fun UserScreen(
             )
         }
     ) {
-        Surface {
-            Column(
-                Modifier
-                    .fillMaxSize()
-                    .padding(it),
-                horizontalAlignment = Alignment.CenterHorizontally
-            ) {
-                uiState.user?.let { userVO ->
+        Surface(
+            Modifier
+                .padding(it)
+        ) {
+            uiState.let { uiState ->
 
-                    ProfileHeader(userVO)
+                when (uiState) {
+                    is Success -> ProfileContent(uiState)
+                    is Error -> ErrorInfo()
+                    Loading -> LoadingInfo()
 
-                    ContactInformation(user = userVO, modifier = Modifier.padding(dimensionResource(
-                        id = com.exalt.core.ui.R.dimen.groups_padding
-                    )))
                 }
-
-
             }
         }
+    }
+}
+
+@Composable
+private fun ProfileContent(uiState: Success) {
+    Column(
+        Modifier
+            .fillMaxSize(),
+        horizontalAlignment = Alignment.CenterHorizontally
+    ) {
+
+        ProfileHeader(uiState.userVO)
+
+        ContactInformation(
+            user = uiState.userVO, modifier = Modifier.padding(
+                dimensionResource(
+                    id = com.exalt.core.ui.R.dimen.groups_padding
+                )
+            )
+        )
     }
 }
 
@@ -84,7 +102,7 @@ fun UserScreenPreview() {
     Mdc3Theme {
         Surface {
             UserScreen(
-                uiState = UserUiState(
+                uiState = Success(
                     UserVO(
                         "",
                         name = DomainModelFactory.OWNER_FIRST_NAME,
@@ -97,6 +115,32 @@ fun UserScreenPreview() {
                         profileBackground = "https://as1.ftcdn.net/v2/jpg/04/14/17/88/1000_F_414178875_7GqEVTasELylv9Y7vNxPjDaMCJlAToMR.jpg"
                     )
                 ),
+                onBackClick = {}
+            )
+        }
+    }
+}
+
+@Preview(showSystemUi = true)
+@Composable
+fun UserScreenErrorPreview() {
+    Mdc3Theme {
+        Surface {
+            UserScreen(
+                uiState = Error,
+                onBackClick = {}
+            )
+        }
+    }
+}
+
+@Preview(showSystemUi = true)
+@Composable
+fun UserScreenLoadingPreview() {
+    Mdc3Theme {
+        Surface {
+            UserScreen(
+                uiState = Loading,
                 onBackClick = {}
             )
         }
