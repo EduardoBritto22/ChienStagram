@@ -13,9 +13,19 @@ android {
         minSdk = AndroidOptions.MIN_SDK
     }
 
+    @Suppress("UnstableApiUsage")
+    buildFeatures {
+        compose = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    @Suppress("UnstableApiUsage")
+    composeOptions {
+        kotlinCompilerExtensionVersion = "1.3.2"
     }
 }
 
@@ -25,8 +35,10 @@ dependencies {
     implementation("androidx.appcompat:appcompat:${Versions.APP_COMPAT}")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.5.1")
     implementation("com.google.android.material:material:${Versions.MATERIAL}")
-    implementation(project(":domain"))
-    implementation(project(":data"))
+    implementation(project(":core:domain"))
+    implementation(project(":core:data"))
+    implementation(project(":core:ui"))
+
 
     // Hilt
     implementation("com.google.dagger:hilt-android:${Versions.HILT}")
@@ -41,4 +53,33 @@ dependencies {
     implementation("androidx.navigation:navigation-runtime-ktx:${Versions.NAVIGATION}")
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.NAVIGATION}")
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.NAVIGATION}")
+
+    // Time
+    implementation("joda-time:joda-time:${Versions.JODA_TIME}")
+
+    //Compose
+    val composeBom = platform("androidx.compose:compose-bom:2022.12.00")
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+
+    // Material Design 3
+    implementation("androidx.compose.material3:material3")
+    implementation("com.google.android.material:material:${Versions.MATERIAL}")
+
+    implementation("androidx.compose.ui:ui")
+
+    // Android Studio Preview support
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+
+    // UI Tests
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    //Compose images loader
+    implementation("io.coil-kt:coil-compose:2.2.2")
+
+    //Adapter from XML theme to Compose
+    implementation("com.google.accompanist:accompanist-themeadapter-material3:0.29.0-alpha")
+
 }

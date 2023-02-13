@@ -2,9 +2,9 @@ package com.exalt.feature.home.mappers
 
 import android.content.res.Resources
 import com.exalt.core.ui.extensions.formatToLocalMediumDateTimeString
-import com.exalt.data.extensions.getLocale
-import com.exalt.domain.home.models.PostPreviewModel
-import com.exalt.feature.home.viewobjects.PostVO
+import com.exalt.core.data.extensions.getLocale
+import com.exalt.core.domain.home.models.PostPreviewModel
+import com.exalt.feature.home.viewobjects.PostPreviewVO
 import javax.inject.Inject
 
 class PostPreviewMapper @Inject constructor(
@@ -13,11 +13,11 @@ class PostPreviewMapper @Inject constructor(
     fun toListPostVO(postPreviewModels: List<PostPreviewModel>) =
         postPreviewModels.map { toPostVO(it) }
 
-    private fun toPostVO(postPreviewModel: PostPreviewModel): PostVO {
+    private fun toPostVO(postPreviewModel: PostPreviewModel): PostPreviewVO {
 
         val locale = resources.getLocale()
 
-       return PostVO(
+       return PostPreviewVO(
             id = postPreviewModel.id,
             text = postPreviewModel.text,
             imageUri = postPreviewModel.imageUrl,

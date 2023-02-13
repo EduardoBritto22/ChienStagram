@@ -3,78 +3,87 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:theme="@style/Theme.ChienStagram"
     android:layout_height="match_parent">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/postToolbar"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="10dp"
-        android:theme="@style/Widget.Material3.Light.ActionBar.Solid"
-        app:buttonGravity="center_vertical"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/ChienStagramToolbar"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_back"
-        app:title="@string/app_name" />
+        app:title="@string/post_name" />
 
-    <LinearLayout
-        android:id="@+id/post_layout"
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:orientation="vertical"
-        android:weightSum="3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/postToolbar">
 
-        <RelativeLayout
-            android:id="@+id/relativeLayout"
+        <LinearLayout
+            android:id="@+id/post_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:weightSum="4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/postToolbar">
 
-            <ImageView
-                android:id="@+id/post_picture"
+            <RelativeLayout
+                android:id="@+id/relativeLayout_user_post"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:contentDescription="@string/post_image"
-                android:scaleType="centerCrop"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:src="@tools:sample/backgrounds/scenic" />
+                android:layout_weight="1">
+
+                <ImageView
+                    android:id="@+id/post_picture"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/post_image"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@tools:sample/backgrounds/scenic" />
+
+                <include
+                    android:id="@+id/post_user_info"
+                    layout="@layout/post_user_info"/>
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/post_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                tools:text="teste te de tess dsdsd hhssdkjdso lksdlk nksdj lljqsdlkhq lkjlqsdn;qswwwww xxxxx  x ljdqzodj sjkqsjdkljsdk j qsknsqdkqlkdqlskijqsdknlsqdjqsldkjqsldk " />
 
             <include
-                android:id="@+id/post_user_info"
-                layout="@layout/post_user_info"/>
+                android:id="@+id/post_information"
+                layout="@layout/post_information"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
-        </RelativeLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/comment_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/post_layout"
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:itemCount="3"
+                tools:listitem="@layout/comment_item" />
 
-        <TextView
-            android:id="@+id/post_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            android:layout_weight="1"
-            tools:text="teste te de tess dsdsd hhssdkjdso lksdlk nksdj lljqsdlkhq lkjlqsdn;qswwwww xxxxx  x ljdqzodj sjkqsjdkljsdk j qsknsqdkqlkdqlskijqsdknlsqdjqsldkjqsldk " />
+        </LinearLayout>
 
-        <include
-            android:id="@+id/post_information"
-            layout="@layout/post_information"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+    </ScrollView>
 
-    </LinearLayout>
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/comment_list"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/post_layout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:itemCount="3"
-        tools:listitem="@layout/comment_item" />
 
     <ProgressBar
         android:id="@+id/progress_post"

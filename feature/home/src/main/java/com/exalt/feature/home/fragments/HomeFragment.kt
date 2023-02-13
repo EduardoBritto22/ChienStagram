@@ -5,8 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
+import androidx.core.net.toUri
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavDeepLinkRequest
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.eXalt.feature.home.R
@@ -40,13 +43,27 @@ class HomeFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
             adapter = PostListAdapter().apply {
                 onUserClick = { userId ->
-                    // TODO NAVIGATE TO USER SCREEN
+                    navigateToUserFragment(userId)
                 }
                 onPostClick = { postId ->
-                    // TODO NAVIGATE TO POST SCREEN
+                    navigateToPostFragment(postId)
                 }
             }
         }
+    }
+
+    private fun navigateToPostFragment(postId: String) {
+        val request = NavDeepLinkRequest.Builder
+            .fromUri("android-app://com.eXalt.chienstagram/postFragment/$postId".toUri())
+            .build()
+        findNavController().navigate(request)
+    }
+
+    private fun navigateToUserFragment(userId: String) {
+        val request = NavDeepLinkRequest.Builder
+            .fromUri("android-app://com.eXalt.chienstagram/userFragment/$userId".toUri())
+            .build()
+        findNavController().navigate(request)
     }
 
     private fun initObservers() {

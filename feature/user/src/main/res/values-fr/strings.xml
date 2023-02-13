@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="module_name">Profil</string>
+    <string name="contact_info_email">Email</string>
+    <string name="contact_info_phone">Téléphone</string>
+    <string name="contact_info_address">Adresse</string>
+    <string name="contact_information_title">INFORMATION DU CONTACT</string>
+    <string name="image_description_gender_symbol">gender symbol</string>
+    <string name="error_loading_profile">Erreur pour charger le profil</string>
+</resources>

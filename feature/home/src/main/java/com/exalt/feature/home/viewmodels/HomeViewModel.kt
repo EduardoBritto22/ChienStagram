@@ -4,9 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
-import com.exalt.domain.home.usecases.GetPostPreviewsUseCase
+import com.exalt.core.domain.home.usecases.GetPostPreviewsUseCase
 import com.exalt.feature.home.mappers.PostPreviewMapper
-import com.exalt.feature.home.viewobjects.PostVO
+import com.exalt.feature.home.viewobjects.PostPreviewVO
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
@@ -18,7 +18,7 @@ class HomeViewModel @Inject constructor(
     private val _isLoading = MutableLiveData(true)
     val isLoading: LiveData<Boolean> = _isLoading
 
-    val posts: LiveData<List<PostVO>> = liveData {
+    val posts: LiveData<List<PostPreviewVO>> = liveData {
         emit(
             postPreviewMapper.toListPostVO(getPostPreviewsUseCase.invoke())
         )

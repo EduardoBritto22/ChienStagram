@@ -4,8 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.liveData
-import com.exalt.domain.home.usecases.GetCommentsByPostUseCase
-import com.exalt.domain.home.usecases.GetPostUseCase
+import com.exalt.core.domain.home.usecases.GetCommentsByPostUseCase
+import com.exalt.core.domain.home.usecases.GetPostUseCase
 import com.exalt.feature.post.mappers.CommentVoMapper
 import com.exalt.feature.post.mappers.PostVoMapper
 import com.exalt.feature.post.viewobjects.CommentVO
